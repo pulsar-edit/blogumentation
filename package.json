@@ -1,0 +1,21 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "npx @11ty/eleventy",
+    "serve": "npx @11ty/eleventy --serve"
+  },
+  "keywords": [],
+  "author": "confused-Techie",
+  "license": "MIT",
+  "peerDependencies": {
+    "ejs": "^3.x.x"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "less": "^4.2.0",
+    "markdown-it": "^14.1.0",
+    "skeleton-less": "github:WhatsNewSaes/Skeleton-Less"
+  }
+}

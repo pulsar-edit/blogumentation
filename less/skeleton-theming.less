@@ -1,0 +1,164 @@
+
+// Overwrite Skeleton values
+
+body {
+  color: var(--font-color);
+  background-color: var(--body-color);
+}
+
+a {
+  color: var(--link-color);
+
+  &:hover {
+    color: var(--link-color__hover);
+  }
+}
+
+.button,
+button {
+  color: var(--btn-color);
+  border-color: var(--btn-border);
+  background-color: var(--btn-bg);
+}
+
+input {
+  &[type="submit"],
+  &[type="reset"],
+  &[type="button"] {
+    color: var(--input_btn-color);
+    border-color: var(--input_btn-border);
+    background-color: var(--input_btn-bg);
+  }
+}
+
+.button:hover,
+button:hover {
+  color: var(--btn-color__hover);
+  border-color: var(--btn-border__hover);
+  background-color: var(--btn-bg__hover);
+}
+
+input {
+  &[type="submit"]:hover,
+  &[type="reset"]:hover,
+  &[type="button"]:hover {
+    color: var(--input_btn-color__hover);
+    border-color: var(--input_btn-border__hover);
+    background-color: var(--input_btn-bg__hover);
+  }
+}
+
+.button:focus,
+button:focus {
+  color: var(--btn-color__focus);
+  border-color: var(--btn-border__focus);
+  background-color: var(--btn-bg__focus);
+}
+
+input {
+  &[type="submit"]:focus,
+  &[type="reset"]:focus,
+  &[type="button"]:focus {
+    color: var(--input_btn-color__focus);
+    border-color: var(--input_btn-border__focus);
+    background-color: var(--input_btn-bg__focus);
+  }
+}
+
+.button.button-primary,
+button.button-primary {
+  color: var(--btn_primary-color);
+  background-color: var(--btn_primary-bg);
+  border-color: var(--btn_primary-border);
+}
+
+input {
+  &[type="submit"].button-primary,
+  &[type="reset"].button-primary,
+  &[type="button"].button-primary {
+    color: var(--input_btn_primary-color);
+    border-color: var(--input_btn_primary-border);
+    background-color: var(--input_btn_primary-bg);
+  }
+}
+
+.button.button-primary:hover,
+button.button-primary:hover {
+  color: var(--btn_primary-color__hover);
+  background-color: var(--btn_primary-bg__hover);
+  border-color: var(--btn_primary-border__hover);
+}
+
+input {
+  &[type="submit"].button-primary:hover,
+  &[type="reset"].button-primary:hover,
+  &[type="button"].button-primary:hover {
+    color: var(--input_btn_primary-color__hover);
+    background-color: var(--input_btn_primary-bg__hover);
+    border-color: var(--input_btn_primary-border__hover);
+  }
+}
+
+.button.button-primary:focus,
+button.button-primary:focus {
+  color: var(--btn_primary-color__focus);
+  background-color: var(--btn_primary-bg__focus);
+  border-color: var(--btn_primary-border__focus);
+}
+
+input {
+  &[type="submit"].button-primary:focus,
+  &[type="reset"].button-primary:focus,
+  &[type="button"].button-primary:focus {
+    color: var(--input_btn_primary-color__focus);
+    background-color: var(--input_btn_primary-bg__focus);
+    border-color: var(--input_btn_primary-border__focus);
+  }
+  &[type="email"],
+  &[type="number"],
+  &[type="search"],
+  &[type="text"],
+  &[type="tel"],
+  &[type="url"],
+  &[type="password"] {
+    background-color: var(--input_field-bg);
+    border-color: var(--input_field-border);
+  }
+}
+
+textarea,
+select {
+  background-color: var(--textarea-bg);
+  border-color: var(--textarea-border);
+}
+
+input {
+  &[type="email"]:focus,
+  &[type="number"]:focus,
+  &[type="search"]:focus,
+  &[type="text"]:focus,
+  &[type="tel"]:focus,
+  &[type="url"]:focus,
+  &[type="password"]:focus {
+    border-color: var(--input_field-border__focus);
+  }
+}
+
+textarea:focus,
+select:focus {
+  border-color: var(--textarea-border__focus);
+}
+
+code {
+  background: var(--code-bg);
+  border-color: var(--code-border);
+}
+
+th,
+td {
+  border-bottom: 1px solid var(--table-border);
+}
+
+hr {
+  border-top: 1px solid var(--thematicBreak-color);
+}

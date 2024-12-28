@@ -1,0 +1,56 @@
+:root {
+  --content-max-width: 1200px;
+  // Margin on each side should be 5% of the width of the window.
+  --margin-x: 5vw;
+}
+
+@media (min-width: 800px) {
+  :root {
+    // Once we reach 800px window width, that 5vw is equal to 4rem, or 40px. We
+    // should keep it there.
+    --margin-x: 4rem;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding-left: var(--margin-x);
+  padding-right: var(--margin-x);
+  max-width: var(--content-max-width);
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+
+.content .container {
+  margin: 0 0 10rem;
+  width: 100% !important;
+}
+
+// Ensure images scale down to fit the content area.
+.content img {
+  max-width: 100%;
+}
+
+@media (min-width: @bp-larger-than-tablet) {
+  .content {
+    flex-direction: row;
+    gap: 2rem;
+
+    .container {
+      max-width: calc(100vw);
+    }
+
+    .sidebar + .container {
+      max-width: calc(100vw - 250px);
+    }
+  }
+
+  .content .container {
+    flex-shrink: 1;
+    min-width: 0;
+  }
+}
