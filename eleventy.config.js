@@ -45,6 +45,8 @@ module.exports = (eleventyConfig) => {
 
   // copy the data from static to static
   eleventyConfig.addPassthroughCopy({ "static": "static" });
+  // Ensure the CNAME file is in the root dir
+  eleventyConfig.addPassthroughCopy({ "static/CNAME": "CNAME" });
   eleventyConfig.addPassthroughCopy({ "assets": "assets" });
 
   // Add our custom collection of blog posts
