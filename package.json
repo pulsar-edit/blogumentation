@@ -15,11 +15,8 @@
     "ejs": "^3.x.x"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.1",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
-    "cross-env": "^7.0.3",
-    "less": "^4.2.0",
-    "markdown-it": "^14.1.0",
-    "terser": "^5.37.0"
+    "@11ty/eleventy": "^3.0.0",
+    "11ty-config": "github:confused-Techie/11ty-config-pulsar",
+    "cross-env": "^7.0.3"
   }
 }

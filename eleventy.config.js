@@ -1,61 +1,19 @@
 const less = require("less");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const PRISM_LANGUAGE_SCM = require("./plugins/prism-language-scm.js");
+const pulsarEleventyConfig = require("11ty-config");
 
 module.exports = (eleventyConfig) => {
 
-  eleventyConfig.setServerOptions({
-    // Prevent the server from trying to do a clever hot-reload when only
-    // Markdown is changed. We have JavaScript code that needs to react to
-    // changed content, so it's better to reload the page instead.
-    domDiff: false
-  });
-
-  eleventyConfig.addPlugin(syntaxHighlight, {
-    init({ Prism }) {
-      Prism.languages.scm = PRISM_LANGUAGE_SCM;
-    }
-  });
-
-  // Add custom templates
-  eleventyConfig.addTemplateFormats("less");
-  eleventyConfig.addExtension("less", {
-    outputFileExtension: "css",
-    compile: async function (input, inputPath) {
-      try {
-        const output = await less.render(input, {
-          math: "always" // required for use with Skeleton
-        });
-
-        this.addDependencies(inputPath, output.imports);
-        return async () => output.css;
-      } catch(err) {
-        console.error(`Error compiling less:\n`, err);
-        throw err;
-      }
-    }
-  });
-
-  eleventyConfig.addTemplateFormats("js");
-  eleventyConfig.addExtension("js", require("./plugins/terser.js"));
-
-  eleventyConfig.setLibrary("md", require("./plugins/markdown-it.js"));
+  pulsarEleventyConfig(eleventyConfig);
 
   // Add passthrough file copies
-
-  // copy the data from static to static
-  eleventyConfig.addPassthroughCopy({ "static": "static" });
-  // Ensure the CNAME file is in the root dir
-  eleventyConfig.addPassthroughCopy({ "static/CNAME": "CNAME" });
   eleventyConfig.addPassthroughCopy({ "assets": "assets" });
 
   // Add our custom collection of blog posts
   eleventyConfig.addCollection("blog-posts", (collectionApi) => {
     return collectionApi.getFilteredByGlob("blog/posts/*.md").reverse();
   });
-
-  eleventyConfig.addWatchTarget("./less/");
-  eleventyConfig.addWatchTarget("./layouts/");
 
   // Since 11ty doesn't natively provide EJS with filters, we have to manually
   // define our helpers like this. In a magical way found by @savetheclocktower
