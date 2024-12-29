@@ -1,4 +1,6 @@
 const less = require("less");
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const PRISM_LANGUAGE_SCM = require("./plugins/prism-language-scm.js");
 
 module.exports = (eleventyConfig) => {
 
@@ -7,6 +9,12 @@ module.exports = (eleventyConfig) => {
     // Markdown is changed. We have JavaScript code that needs to react to
     // changed content, so it's better to reload the page instead.
     domDiff: false
+  });
+
+  eleventyConfig.addPlugin(syntaxHighlight, {
+    init({ Prism }) {
+      Prism.languages.scm = PRISM_LANGUAGE_SCM;
+    }
   });
 
   // Add custom templates
