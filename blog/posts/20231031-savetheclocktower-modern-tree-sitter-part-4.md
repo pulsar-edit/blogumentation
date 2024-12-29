@@ -9,7 +9,7 @@ tag:
   - tree-sitter
 ---
 
-Last time we looked at Tree-sitter’s query system and showed how it can be used [to make a syntax highlighting engine in Pulsar](/blog/20231013-savetheclocktower-modern-tree-sitter-part-3.html). But syntax highlighting is simply the most visible of the various tasks that a language package performs.
+Last time we looked at Tree-sitter’s query system and showed how it can be used [to make a syntax highlighting engine in Pulsar](/posts/20231013-savetheclocktower-modern-tree-sitter-part-3/). But syntax highlighting is simply the most visible of the various tasks that a language package performs.
 
 Today we’ll look at two other systems — indentation hinting and code folding — and I’ll explain how queries can be used to support each one.
 
@@ -30,9 +30,9 @@ and press <kbd>Return</kbd>, all major code editors will indent the next line fo
 And once I’m done with the conditional and type `}` on its own line, my editor should recognize that this line isn’t part of the indented block, and should decrease the indentation by one level automatically.
 
 <video style="max-width: 100%" autoplay controls muted loop>
-	<source src="@source/blog/assets/tree-sitter-simple-indentation.webm" type="video/webm">
-	<source src="@source/blog/assets/tree-sitter-simple-indentation.mp4" type="video/mp4">
-	<p>Your browser doesn’t support HTML video. <a href="@source/blog/assets/tree-sitter-simple-indentation.mp4">Download this video</a> instead.</p>
+	<source src="/assets/tree-sitter-simple-indentation.webm" type="video/webm">
+	<source src="/assets/tree-sitter-simple-indentation.mp4" type="video/mp4">
+	<p>Your browser doesn’t support HTML video. <a href="/assets/tree-sitter-simple-indentation.mp4">Download this video</a> instead.</p>
 </video>
 
 How does Pulsar do this now? And how can we swap in our own system for doing it with Tree-sitter?
@@ -49,9 +49,9 @@ For JavaScript, imagine that `increaseIndentPattern` can be described as “an o
 Let’s look at that screencast again to see these rules in action:
 
 <video style="max-width: 100%" autoplay controls muted loop>
-	<source src="@source/blog/assets/tree-sitter-simple-indentation.webm" type="video/webm">
-	<source src="@source/blog/assets/tree-sitter-simple-indentation.mp4" type="video/mp4">
-	<p>Your browser doesn’t support HTML video. <a href="@source/blog/assets/tree-sitter-simple-indentation.mp4">Download this video</a> instead.</p>
+	<source src="/assets/tree-sitter-simple-indentation.webm" type="video/webm">
+	<source src="/assets/tree-sitter-simple-indentation.mp4" type="video/mp4">
+  <p>Your browser doesn’t support HTML video. <a href="/assets/tree-sitter-simple-indentation.mp4">Download this video</a> instead.</p>
 </video>
 
 The first rule comes into play when we press <kbd>Return</kbd> at the end of line 2. A newline is inserted, and the cursor is correctly indented by one additional level.
@@ -233,9 +233,9 @@ This particular example **isn’t yet implemented**, but it could be. This would
 Here’s another edge case of indentation: a braceless `if` statement.
 
 <video style="max-width: 100%" autoplay controls muted loop>
-	<source src="@source/blog/assets/tree-sitter-advanced-indentation-part-1.webm" type="video/webm">
-	<source src="@source/blog/assets/tree-sitter-advanced-indentation-part-1.mp4" type="video/mp4">
-	<p>Your browser doesn’t support HTML video. <a href="@source/blog/assets/tree-sitter-advanced-indentation-part-1.mp4">Download this video</a> instead.</p>
+	<source src="/assets/tree-sitter-advanced-indentation-part-1.webm" type="video/webm">
+	<source src="/assets/tree-sitter-advanced-indentation-part-1.mp4" type="video/mp4">
+	<p>Your browser doesn’t support HTML video. <a href="/assets/tree-sitter-advanced-indentation-part-1.mp4">Download this video</a> instead.</p>
 </video>
 
 How did we pull this off? Haven’t we been targeting nodes like `{` and `}`?
@@ -276,9 +276,9 @@ The `@dedent.next` capture is only rarely needed, but this is a textbook case: i
 How well does this work? Amazingly well:
 
 <video style="max-width: 100%" autoplay controls muted loop>
-	<source src="@source/blog/assets/tree-sitter-advanced-indentation-part-2.webm" type="video/webm">
-	<source src="@source/blog/assets/tree-sitter-advanced-indentation-part-2.mp4" type="video/mp4">
-	<p>Your browser doesn’t support HTML video. <a href="@source/blog/assets/tree-sitter-advanced-indentation-part-2.mp4">Download this video</a> instead.</p>
+	<source src="/assets/tree-sitter-advanced-indentation-part-2.webm" type="video/webm">
+	<source src="/assets/tree-sitter-advanced-indentation-part-2.mp4" type="video/mp4">
+	<p>Your browser doesn’t support HTML video. <a href="/assets/tree-sitter-advanced-indentation-part-2.mp4">Download this video</a> instead.</p>
 </video>
 
 Tree-sitter isn’t confused by the line comment! It won’t dedent until after the user types an actual statement.
@@ -336,9 +336,9 @@ Since comment nodes don’t have children, we should set a custom ending positio
 Now we can fold up the block comment the way we want:
 
 <video style="max-width: 100%" autoplay controls muted loop>
-	<source src="@source/blog/assets/tree-sitter-block-comment-code-fold.webm" type="video/webm">
-	<source src="@source/blog/assets/tree-sitter-block-comment-code-fold.mp4" type="video/mp4">
-	<p>Your browser doesn’t support HTML video. <a href="@source/blog/assets/tree-sitter-block-comment-code-fold.mp4">Download this video</a> instead.</p>
+	<source src="/assets/tree-sitter-block-comment-code-fold.webm" type="video/webm">
+	<source src="/assets/tree-sitter-block-comment-code-fold.mp4" type="video/mp4">
+	<p>Your browser doesn’t support HTML video. <a href="/assets/tree-sitter-block-comment-code-fold.mp4">Download this video</a> instead.</p>
 </video>
 
 Folding in JavaScript is still pretty simple, but not as simple as CSS. We’ve got to account for some edge cases. For example, when an `if` statement is followed by an `else`, we should adjust the fold so that it ends on the line _before_ the `else`, so that each fold can be toggled independently without interfering with one another:
@@ -358,9 +358,9 @@ Folding in JavaScript is still pretty simple, but not as simple as CSS. We’ve 
 You can see how this works in the screencast below — the `else` block’s closing delimiter folds up to be on the same line as the starting delimiter, but the `if` block’s fold stops before the newline.
 
 <video style="max-width: 100%" autoplay controls muted loop>
-	<source src="@source/blog/assets/tree-sitter-simple-folding.webm" type="video/webm">
-	<source src="@source/blog/assets/tree-sitter-simple-folding.mp4" type="video/mp4">
-	<p>Your browser doesn’t support HTML video. <a href="@source/blog/assets/tree-sitter-simple-folding.mp4">Download this video</a> instead.</p>
+	<source src="/assets/tree-sitter-simple-folding.webm" type="video/webm">
+	<source src="/assets/tree-sitter-simple-folding.mp4" type="video/mp4">
+	<p>Your browser doesn’t support HTML video. <a href="/assets/tree-sitter-simple-folding.mp4">Download this video</a> instead.</p>
 </video>
 
 “End the fold at the end of the previous line” is a common enough case to have its own shorthand predicate. We’ve put this special-case query above the simpler one because Pulsar will use the first capture that matches for a given line.
