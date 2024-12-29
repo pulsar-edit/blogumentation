@@ -19,6 +19,6 @@ It is hard to believe this project is almost nearing a year old. The [pulsar-edi
 
 Here is a chart generated on [star-history.com](https://star-history.com/) showing our stars over time.
 
-![star-chart](./assets/star-history-2023610.png)
+![star-chart](/assets/star-history-2023610.png)
 
 So again, a huge thank you to everyone, particularly our wonderful community and our generous donors who make this project possible.

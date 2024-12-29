@@ -23,7 +23,7 @@ Enough waffling, lets get on with it!
 
 ## Community package feature detection
 
-<img src="./assets/detective.png" height=200><img src="./assets/package.png" height=200>
+<img src="/assets/detective.png" height=200><img src="/assets/package.png" height=200>
 
 [@confused-techie] has been busy developing a new feature to our Pulsar Package Repository backend to add "Feature Detection". What does this mean? Well in this case feature detection refers to the analysis of community packages as and when they are published to the repository in order to collect information on what features the package can provide. For example it can determine if the package is providing [snippets](https://pulsar-edit.dev/docs/launch-manual/sections/using-pulsar/#snippets) or a language grammar and, most excitingly, what languages and file extensions that grammar is able to support.
 
@@ -59,7 +59,7 @@ We feel this is a really exciting addition so stay tuned for more info as an whe
 
 ## Tree-sitter updates are live!
 
-<img src="./assets/tree-sitter.png" height="150" />[^1]
+<img src="/assets/tree-sitter.png" height="150" />[^1]
 
 If you have been following these monthly updates then you know that [tree-sitter](https://tree-sitter.github.io/tree-sitter/) has been a common topic and one of our biggest challenges in our goals to bring Pulsar up to date.
 
@@ -90,7 +90,7 @@ With such a large overhaul, there are bound to be bugs. If you’re using the ne
 
 ## GitHub Discussions reorganisation
 
-<img src="./assets/gh-discussions.png" height=300>
+<img src="/assets/gh-discussions.png" height=300>
 
 We just had a [revamp of our GitHub Discussions](https://github.com/orgs/pulsar-edit/discussions/172) which follows a feature that GitHub finally added to allow organisation via sections. This means that we have been able to better separate the various categories into more thematic groups. Hopefully this shows that we do care about and maintain the Discussions area just as much as our other social channels, we don't want people to avoid this area just because it isn't currently as active (chicken or the egg comes to mind here - it won't become more active if people don't use it.). So please, if you want to have a more "long form" discussion or you want a little more of an "asynchronous" type of engagement then Discussions is perfect for that.
 
@@ -106,15 +106,15 @@ Some of the packages I find particularly interesting and useful are:
 
 - [project-files](https://web.pulsar-edit.dev/packages/project-files) - a package for providing better management and navigation of projects within Pulsar including navigation of the project list, recent projects and even adds autocompletion of path names.
 
-<img src="./assets/bacadra-project-files.png" height=300>
+<img src="/assets/bacadra-project-files.png" height=300>
 
 - [navigation-panel](https://web.pulsar-edit.dev/packages/navigation-panel) - this provides an awful lot of stuff that is quite difficult to explain in only a few words but essentially it allows you to add custom symbols to your files
 
-<img src="./assets/bacadra-navigation-panel.png" height=300>
+<img src="/assets/bacadra-navigation-panel.png" height=300>
 
 - [pdf-viewer](https://web.pulsar-edit.dev/packages/pdf-viewer) - kind of self explanatory but allows you to open up PDFs directly in Pulsar.
 
-<img src="./assets/bacadra-pdf-viewer.png" height=300>
+<img src="/assets/bacadra-pdf-viewer.png" height=300>
 
 There are tons more packages, have a look at their [GitHub repos](https://github.com/orgs/bacadra/repositories?q=&type=all&language=&sort=) for more.
 

@@ -99,7 +99,7 @@ If you’re following along with [`tree-sitter-tools`](https://web.pulsar-edit.d
 4. Toggle the “Anonymous nodes” option to **Show**.
 5. Paste that code block into the appropriate text box and click on <kbd>Run Query</kbd>.
 
-![tree-sitter-tools indentation example](./assets/tree-sitter-tools-indentation-example.png)
+![tree-sitter-tools indentation example](/assets/tree-sitter-tools-indentation-example.png)
 
 You can see the query matches illustrated in the text editor in real time, and you can match up the colors to the `@indent` and `@dedent` captures. You can even type new content (as in the examples below) and see the captures update in real time!
 
@@ -307,7 +307,7 @@ Again, credit goes to the `nvim-treesitter` developers and to [@mauricioszabo][]
 
 That’s the _entirety_ of the contents of the `folds.scm` file inside the `language-css` package. This works because a starting position and an ending position are all you need to describe a fold, and that’s what Tree-sitter gives us. Every node in a tree reports its buffer positions, so every node can be the target of a fold.
 
-![tree sitter simple fold example](./assets/tree-sitter-simple-fold-example.png)
+![tree sitter simple fold example](/assets/tree-sitter-simple-fold-example.png)
 
 Let’s go a bit deeper and figure out what this does.
 
@@ -317,13 +317,13 @@ Any results will have their buffer ranges inspected. If the range starts and end
 
 The **beginning** of a code fold is the very last column on its starting line. In most cases, the range in question will have delimiters on each end — the backticks of a template string, the curly braces of an `if` or `else` condition, et cetera. That’s why, by default, the **end** of a code fold is the _starting_ position of its very last node child. This works as intended in the vast majority of cases, as in our CSS example above:
 
-![tree-sitter-tools node hierarchy illustration](./assets/tree-sitter-tools-css-block.png)
+![tree-sitter-tools node hierarchy illustration](/assets/tree-sitter-tools-css-block.png)
 
 But because this isn’t always true — especially for languages like Python that don’t use delimiters for blocks — we provide ways to tweak a fold’s ending position.
 
 For instance, let’s look at a JavaScript block comment:
 
-![JavaScript block comment](./assets/tree-sitter-javascript-block-comment.png)
+![JavaScript block comment](/assets/tree-sitter-javascript-block-comment.png)
 
 Since comment nodes don’t have children, we should set a custom ending position for the fold with `fold.endAt` so that it doesn’t try to look up a child node that doesn’t exist. Then we can use `fold.offsetEnd` to move the ending point of the fold two columns to the left so that the fold ends before the comment’s ending delimiter:
 

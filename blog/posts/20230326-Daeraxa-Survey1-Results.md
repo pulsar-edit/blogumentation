@@ -20,8 +20,8 @@ First of all here is an infographic [@Daeraxa](https://github.com/Daeraxa) put t
 <!-- markdownlint-disable -->
 
 <div class="image-preview">
-  <img src="./assets/survey1-infographic1.png" />
-  <img src="./assets/survey1-infographic2.png" />
+  <img src="/assets/survey1-infographic1.png" />
+  <img src="/assets/survey1-infographic2.png" />
 </div>
 
 <style>

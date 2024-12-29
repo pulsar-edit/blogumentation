@@ -67,15 +67,15 @@ Services thus act as _contracts_ between packages. And they can be versioned, to
 
 This flexibility makes new things possible. Consider a package like `autocomplete-plus`, the bundled package that provides an autocompletion menu in Pulsar. It doesn’t try to implement the various tactics that can be used to suggest completion candidates; all it does is make the user interface for an autocomplete menu. It then defines an **`autocomplete.provider`** service so that _other_ packages can provide completion suggestions. Packages like `autocomplete-html`, `autocomplete-css`, and others know how to suggest context-specific completions at the cursor, so they feed that data to `autocomplete-plus`.
 
-![Service Diagram 1](./assets/service-diagram-1.png)
+![Service Diagram 1](/assets/service-diagram-1.png)
 
 We like this approach because it gives users an incredible amount of control. For example, if you don’t like the HTML autocompletion suggestions, you can change `autocomplete-html`’s configuration, or even disable it entirely. Or you could write your own alternative to `autocomplete-html`. Or you could even write your own alternative to `autocomplete-plus`! By registering as a _consumer_ of `autocomplete.provider`, your replacement package would be able to communicate with packages like `autocomplete-html` just as easily as `autocomplete-plus` can.
 
-![Service Diagram 2](./assets/service-diagram-2.png)
+![Service Diagram 2](/assets/service-diagram-2.png)
 
 This is the model we need for `symbols-view`. We now have a second approach for generating symbols that can compete favorably with the `ctags` strategy. So let’s reinvent `symbols-view` in the style of `autocomplete-plus` and make it a consumer of a new service we’ll invent named **`symbol.provider`**.
 
-![Service Diagram 3](./assets/service-diagram-3.png)
+![Service Diagram 3](/assets/service-diagram-3.png)
 
 The built-in `ctags` provider can be spun off into a package called `symbol-provider-ctags`, and our new Tree-sitter–based approach can be in a package called `symbol-provider-tree-sitter`. These packages can provide the `symbol.provider` service for `symbols-view` to consume.
 
@@ -93,7 +93,7 @@ Now, we can only do this when the file in question is using a Tree-sitter gramma
 
 Another thing that `symbols-view` has long supported — theoretically — is _project_-based symbol navigation, allowing you to search for and jump to symbols in other files.
 
-![Project Symbols example](./assets/project-symbols.png)
+![Project Symbols example](/assets/project-symbols.png)
 
 It’s been able to do this because `ctags` can read project-wide symbol metadata — a genuine upside it has over some other approaches. But this feature only works if the user has generated a special file called a “tags file” for their project. Pulsar itself can’t generate this file on its own because it doesn’t know which files it should crawl to find symbols (imagine if it tried to crawl your entire `node_modules` folder!), so the `ctags` strategy requires the user to regenerate that file on a regular basis.
 
@@ -145,7 +145,7 @@ Did you know you can bookmark lines in a buffer? Try it out: right-click on any 
 
 Anyway, to illustrate the idea of a supplemental provider, I wrote one: [`symbol-provider-bookmarks`](https://web.pulsar-edit.dev/packages/symbol-provider-bookmarks) will turn each of your bookmarks into a symbol, then display them in the `symbols-view` UI alongside your main provider’s symbols, using the text of the bookmarked line as the symbol name.
 
-![symbol-provider-bookmarks example](./assets/symbol-provider-bookmarks-example.png)
+![symbol-provider-bookmarks example](/assets/symbol-provider-bookmarks-example.png)
 
 This one’s not bundled with Pulsar, so [grab it from the package registry](https://web.pulsar-edit.dev/packages/symbol-provider-bookmarks) if it sounds interesting.
 
@@ -175,7 +175,7 @@ The richness of the metadata we get from these sources has allowed us to enhance
 
 And there are even a few _killer_ new features. Open a symbols list on a JSON file and marvel at the entries you see:
 
-![symbols-view JSON example](./assets/symbols-view-json.png)
+![symbols-view JSON example](/assets/symbols-view-json.png)
 
 The _entire key path_ is now the name of the symbol! The same sorts of query and predicate tricks we’ve seen in previous installments in this series can be used for awesome features like this. [The `symbol-provider-tree-sitter` README](https://github.com/pulsar-edit/pulsar/blob/master/packages/symbol-provider-tree-sitter/README.md#advanced-features) has more details.
 

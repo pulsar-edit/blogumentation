@@ -21,7 +21,7 @@ I realise that this probably raises more questions than it answers, so read on t
 
 ## Upheaving our CI setup
 
-<img src="./assets/moving.png" height="200" />
+<img src="/assets/moving.png" height="200" />
 
 Ever since we started providing downloadable binaries shortly after the Pulsar project properly started, we have been using Cirrus CI as our continuous integration platform. This has worked very well for us for quite some time now, but unfortunately for us, they recently decided to change their free tier and our setup puts us well beyond that free tier and into some quite serious money. At this point we had a couple of choices: either we stick with Cirrus CI by using our donors' money, or we move to another platform. We chose the latter option as we simply could not justify nor sustain the costs.
 
@@ -33,7 +33,7 @@ We have a much bigger and more detailed write-up on what went on to be published
 
 ## Chocolately packages are up to date again!
 
-<img src="./assets/chocolatey.png" height="150" />
+<img src="/assets/chocolatey.png" height="150" />
 
 If you use the Chocolately package manager for Windows, you may have noticed the official packages have been a few versions behind. This has now been solved and the latest versions are available once again with a lot of improvements to the process to avoid this kind of thing ever happening again. A huge thanks to [@COLAMAroro], [@spiker985] and [@confused-techie] for implementing this. We have already put up a whole blog post for this, so if you missed it, you can [read it here](https://pulsar-edit.dev/blog/20230825-Daeraxa-ChocolateyUpdate.html).
 
@@ -43,17 +43,17 @@ If you use the Chocolately package manager for Windows, you may have noticed the
 
 To demonstrate, the next image shows what it currently looks like:
 
-<img src="./assets/title-bar-tab.png" height="50" />
+<img src="/assets/title-bar-tab.png" height="50" />
 
 And what it looks like if you turn the setting off to remove the tab from the title:
 
-<img src="./assets/title-bar-no-tab.png" height="50" />
+<img src="/assets/title-bar-no-tab.png" height="50" />
 
 This is currently available in our [rolling release](https://pulsar-edit.dev/download.html#rolling-release) and will be in our next regular release in a couple of weeks.
 
 ## Unpublishing packages
 
-<img src="./assets/package.png" height=200>
+<img src="/assets/package.png" height=200>
 
 There are some very good reasons to want to unpublish a package or a specific version from the Pulsar Package Repository. You may have made a mistake or simply want to deprecate an old, non-functional version. Either way, we had an issue; it just wasn't working. Thankfully, due to some great collaboration between [@asiloisad/@bacadra] and [@confused-techie], the problem was [found and patched](https://github.com/pulsar-edit/package-backend/pull/195).
 
@@ -67,13 +67,13 @@ So with the above process and an improvement to the wording in the `unpublish` c
 
 ## Pulsar cleanup
 
-<img src="./assets/cleaning.png" height=200>
+<img src="/assets/cleaning.png" height=200>
 
 It was brought to our attention by a community member that, upon uninstall, Pulsar was not clearing up all the directories it created during installation. Whilst this is somewhat expected for the configuration directory, there were also examples of other elements being left behind. To this end, [@confused-techie] has been putting together a new package, [pulsar-cleanup](https://github.com/pulsar-edit/pulsar-cleanup), to try and deal with these leftover elements. As `electron-builder` is largely in control of the uninstall process, some elements do get left over at the end of the process. This utility will be a stand-alone executable that can be used to fully clean up all these extra artifacts, leaving your system entirely clean of any Pulsar installation.
 
 ## Community spotlight
 
-<img src="./assets/spotlight.png" height=200>
+<img src="/assets/spotlight.png" height=200>
 
 In our community spotlight this month, we want to say a big thank you to new first time contributor [@casswedson] for [this PR](https://github.com/pulsar-edit/pulsar/pull/678) to remove a bunch of deprecation warnings in one of our workflows.
 

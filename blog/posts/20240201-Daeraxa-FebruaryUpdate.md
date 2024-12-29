@@ -19,7 +19,7 @@ Last month was our biggest update to Pulsar we have had in quite a while, so in 
 
 ## Update on the new Tree-sitter implementation
 
-<img src="./assets/tree-sitter.png" height="150" />[^1]
+<img src="/assets/tree-sitter.png" height="150" />[^1]
 
 With the release of Pulsar 1.113 we finally went live with our new Tree-sitter implementation, which had been in the works for a long time. We had tested this as much as we were able to with the resources we had, and we made sure that any issues raised by people enabling the new feature were dealt with. However, with it being enabled by default, we suddenly had significantly more people using this feature, and thus issues we hadn't yet seen were being found.
 
@@ -33,7 +33,7 @@ Thank you to all those who have submitted issues or let us know about problems v
 
 ## New blog post about our quest for Electron stable
 
-<img src="./assets/electron.png" height="150" />[^2]
+<img src="/assets/electron.png" height="150" />[^2]
 
 If you haven't seen it already, [@maurício szabo] has written a great new blog post on our next biggest goal for Pulsar: getting it onto a current and stable version of Electron. There are a number of challenges (the recent Tree-sitter update included) that need to be met in order to reach this, and the post explains it all.
 
@@ -41,7 +41,7 @@ Read it now on the [Pulsar blog](https://pulsar-edit.dev/blog/20240124-mauricios
 
 ## New PPR filter options
 
-<img src="./assets/package.png" height="150" />
+<img src="/assets/package.png" height="150" />
 
 Thanks to [@confused-techie] following on from some work via [@savetheclocktower], we now have a whole bunch of new ways to use the PPR API to filter packages. For example, you can now search for packages that provide a grammar for a particular file extension, consumes/provides a service, or just search by the package owner.
 
@@ -57,7 +57,7 @@ Now if only there was a way to find what all these different endpoints might be 
 
 ## Major update to our OpenAPI documentation for the PPR
 
-<img src="./assets/openapi-logo.png" height="150" />[^3]
+<img src="/assets/openapi-logo.png" height="150" />[^3]
 
 Our API documentation (found at [https://api.pulsar-edit.dev/swagger-ui/](https://api.pulsar-edit.dev/swagger-ui/)) is having a major update courtesy of work by [@confused-techie]. This update adds the significant number of endpoints and schemas that have been added since it was last updated.
 
@@ -65,7 +65,7 @@ Even better, to make sure we don't get into this same situation again with outda
 
 ## Community Spotlight
 
-<img src="./assets/spotlight.png" height=200>
+<img src="/assets/spotlight.png" height=200>
 
 Thank you to [@claytonrcarter] for the PR to Pulsar to [fix a breaking change](https://github.com/pulsar-edit/pulsar/pull/860) with our new Tree-sitter implementation as well as a second PR for [adding a new `-f/--force` flag](https://github.com/pulsar-edit/ppm/pull/122) to the `ppm link` command in order to aid in replacing linked packages without needing to manually remove original.
 

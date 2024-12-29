@@ -17,7 +17,7 @@ Join !pulsaredit@lemmy.ml!
 ## Come and join our newly opened Lemmy community!
 
 <a href="https://lemmy.ml/c/pulsaredit">
-  <img src="./assets/pulsar-lemmy.png" height="300" class="blog-image-center" alt="Lemmy community summary"/>
+  <img src="/assets/pulsar-lemmy.png" height="300" class="blog-image-center" alt="Lemmy community summary"/>
 </a>
 
 During the Reddit blackout a couple of months ago, we had a lot of interest in the creation of an official Lemmy community in combination with our Subreddit. After checking things again with a vote, we have decided to officially open our Lemmy instance.

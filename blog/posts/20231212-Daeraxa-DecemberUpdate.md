@@ -19,7 +19,7 @@ Another warm welcome to the Pulsar community update, where we cover new developm
 
 ## Update on Electron updates
 
-<img src="./assets/electron.png" height=200>
+<img src="/assets/electron.png" height=200>
 
 It has been a while since we have shared an update on the progress of getting Pulsar up to date with its version of Electron. This has been a long-term goal of the project, but not an easy one due to significant changes in the Electron framework. [@maurício szabo] has had a long-running fork of Pulsar that is working on the latest versions of Electron and by all accounts, it works just fine. One recent win has been to get one of Pulsar's core packages, the `github` package, working again.
 
@@ -45,19 +45,19 @@ We also have a plan we mentioned recently, the [Pulsar Cooperative](https://puls
 
 ## PPR website issues
 
-<img src="./assets/tools.png" height=200>
+<img src="/assets/tools.png" height=200>
 
 Some people may have noticed we sporadically have some issues with the Pulsar Package Registry website displaying packages correctly. This is rare and tends to resolve itself fairly quickly once the faulty instance is dropped. [@confused-techie] has introduced some additional error logging to try and nail this issue down. The error page has also been updated to include some links for people to report the issues as and when they see them in order to help us capture and resolve this issue.
 
 ## Community Spotlight
 
-<img src="./assets/spotlight.png" height=200>
+<img src="/assets/spotlight.png" height=200>
 
 ### Default file icons
 
 Community member [@tthaumaturgist] has produced a whole bunch of amazing new icons that can be used to show that a given file will be opened within Pulsar as well as identifying the type of file at a glance.
 
-<img src="./assets/file-icons.png" height=500>
+<img src="/assets/file-icons.png" height=500>
 
 They have produced icons for both Windows and macOS, [@confused-techie] is currently working on implementing this within Pulsar for Windows. A huge thank you to them for this wonderful contribution!
 

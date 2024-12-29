@@ -55,7 +55,7 @@ We haven’t gotten very close to the machinery so far in this series, but I’v
 
 To the Tree-sitter HTML parser, a `style` element looks like this:
 
-![visualization of a style element in tree-sitter](./assets/tree-sitter-tools-style-element.png)
+![visualization of a style element in tree-sitter](/assets/tree-sitter-tools-style-element.png)
 
 You can see that it performs the usual parsing on the start and end tags, but punts on parsing the CSS itself — instead marking it as `raw_text`. This is what it should do! It’s not a CSS parser, after all. It treats the inline `script` element similarly, marking its contents as `raw_text` because it doesn’t understand JavaScript.
 
@@ -131,7 +131,7 @@ When I add back the `script` block…
 
 …I trigger the creation of another language layer: a JavaScript layer that is also a child of the root HTML layer. Now there are _three_ layers that might need to be consulted for syntax highlighting and other tasks.
 
-![tree-sitter injection illustration](./assets/tree-sitter-injection-illustration.png)
+![tree-sitter injection illustration](/assets/tree-sitter-injection-illustration.png)
 
 And it doesn’t stop here! Certain constructs inside of the JavaScript, like regular expressions or tagged template literals, might carry their own injections, in which case new language layers would be created as children of the JavaScript layer. The result is a tree of language layers which cooperate to apply syntax highlighting to our buffer.
 
@@ -214,7 +214,7 @@ No matter which approach we use for _describing_ injections, the job of _process
 
 To visualize what we described above, you can once again use [tree-sitter-tools](https://web.pulsar-edit.dev/packages/tree-sitter-tools). Open your favorite HTML document, then run the **Tree Sitter Tools: Open Inspector For Editor** command. You’ll be able to see all of a document’s trees in a drop-down list:
 
-![a list of language layers in a buffer](./assets/tree-sitter-tools-tree-list.png)
+![a list of language layers in a buffer](/assets/tree-sitter-tools-tree-list.png)
 
 The first item in the list will always be the “root” tree. Other items, if present, represent injections. And because injected languages can have their own injections, this list can grow to arbitrary length.
 
@@ -297,13 +297,13 @@ Ideally, the HTML injection wouldn’t see that interpolation at all. So what if
 
 We can. In fact, we _do_! Here’s what that template string looks like in `tree-sitter-tools`:
 
-![tree-sitter-tools visualization of a JavaScript template string](./assets/tree-sitter-tools-template-string.png)
+![tree-sitter-tools visualization of a JavaScript template string](/assets/tree-sitter-tools-template-string.png)
 
 Our injection is defined such that we specify the `template_string` node as the content. That means Pulsar will use the buffer range of that node, but will _subtract_ the ranges of any of the node’s children!
 
 We can visualize this with the “Show injection ranges” option in `tree-sitter-tools`:
 
-![disjoint content ranges in a Tree-sitter injection](./assets/tree-sitter-html-parser-injection.png)
+![disjoint content ranges in a Tree-sitter injection](/assets/tree-sitter-html-parser-injection.png)
 
 You can see that the HTML injection layer has two disjoint content ranges on either side of the interpolation. The Tree-sitter HTML parser won’t even know the interpolation is there.
 
@@ -351,7 +351,7 @@ Two built-in packages called `language-todo` and `language-hyperlink` define spe
 
 The effect is that Pulsar can help you locate TODOs in comments by coloring them differently from the rest of the comment. It can also draw underlines under URLs and even _follow_ a URL when you place your cursor inside of it and invoke the **Link: Open** command.
 
-![illustration of highlighting of TODOs and URLs in a line comment](./assets/tree-sitter-todo-url-injection.png)
+![illustration of highlighting of TODOs and URLs in a line comment](/assets/tree-sitter-todo-url-injection.png)
 
 This works because a TextMate grammar can “push” its injections into any scope _inside any other grammar_, whether that other grammar asks for it or not. For instance, the `language-hyperlink` grammar injects itself into strings, so any language that defines a `string.*` scope will have those rules injected into it.
 

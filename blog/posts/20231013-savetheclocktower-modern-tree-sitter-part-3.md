@@ -38,7 +38,7 @@ Right now, though, let’s just focus on syntax highlighting. And remember those
 
 I’ll remind you of our example from part 2: the scope names applied to a double-quoted string in JavaScript.
 
-![string scopes](./assets/tree-sitter-string-scopes-diagram.png)
+![string scopes](/assets/tree-sitter-string-scopes-diagram.png)
 
 Our first goal is to make it so that our JavaScript Tree-sitter grammar can apply these same scopes to the same buffer ranges. But Tree-sitter works very differently to a TextMate grammar, so it’s not immediately obvious how we can pull this off. Let’s reason through it.
 
@@ -71,7 +71,7 @@ What does a string look like in a Tree-sitter tree? Let’s create a new documen
 
 Using the [tree-sitter-tools package](https://web.pulsar-edit.dev/packages/tree-sitter-tools), I can open an inspector pane and look at the raw tree for this string:
 
-![string tree](./assets/tree-sitter-tools-string-tree.png)
+![string tree](/assets/tree-sitter-tools-string-tree.png)
 
 So we can see that a `string` node consists of three parts: a delimiter, a `string_content` node, and another delimiter. This structure maps elegantly to the things that we want to scope.
 
@@ -234,11 +234,11 @@ TextMate grammars will scope comments differently based on whether they’re lin
 
 A typical TextMate grammar for JavaScript would scope this comment as `comment.line.double-slash.js`, and would further scope the `//` as `punctuation.definition.comment.js`.
 
-![comment scopes](./assets/tree-sitter-comment-scopes-diagram.png)
+![comment scopes](/assets/tree-sitter-comment-scopes-diagram.png)
 
 Can we do that in a Tree-sitter grammar with the tools we’ve already got? Let’s inspect what our example comment looks like in a Tree-sitter tree:
 
-![comment tree](./assets/tree-sitter-tools-comment-tree.png)
+![comment tree](/assets/tree-sitter-tools-comment-tree.png)
 
 Hmm. No anonymous nodes or anything. Just one node called `comment`.
 

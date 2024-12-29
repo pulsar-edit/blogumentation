@@ -19,7 +19,7 @@ Another warm welcome to the Pulsar community update, where we cover new developm
 
 ## New `UI` API
 
-<img src="./assets/tools.png" height=200>
+<img src="/assets/tools.png" height=200>
 
 Pulsar has a number of different methods of rendering UI components, which tend to differ between the various core packages that make up the main Pulsar editor. This is particularly evident when dealing with Markdown rendering, where different packages may be using different versions of the same dependencies, which all have to be taken into account when updating them. To this end, [@confused-techie] has been implementing a new `UI` API that will simplify all of these disparate methods into a single new API.
 
@@ -39,7 +39,7 @@ This new feature is availble in our newest rolling releases and will soon be in 
 
 ## Exposing a `fuzzy-native` API
 
-<img src="./assets/detective.png" height=200>
+<img src="/assets/detective.png" height=200>
 
 In a similar vein to the above, we also have a [fuzzy-native](https://github.com/pulsar-edit/fuzzy-native) package used to provide fuzzy string matching for Pulsar. This package is used as a dependency for a large number of Pulsar packages, including core packages such as `fuzzy-finder`, `command-palette` and `autocomplete-plus`. The goals here are very similar to those for the new UI API mentioned above; instead of each package needing to specify (and bundle) `fuzzy-native` as a dependency, they can instead simply reference this new global API, saving the need to bundle it as a dependency and having to maintain each package that uses it.
 
@@ -47,23 +47,23 @@ You can view the progress of this work over on [its pull request](https://github
 
 ## A new code runner package
 
-<img src="./assets/computer.png" height=200>
+<img src="/assets/computer.png" height=200>
 
 [@confused-techie] has been working on a new package for running scripts and code directly within Pulsar. The inspiration comes from some existing packages that still work and can be installed, but few of the most popular ones are still actively maintained. Having an integrated code runner package is a common request from new Pulsar users wondering how they can run code directly in the editor in much the same way as is possible within other editors such as VSCode. We are currently discussing the best way to bring this kind of functionality to users; should we publish this as a package, include it as a new core package, or something in-between? Whatever the outcome, you can look forward to more news on this package soon!
 
 If you want to check it out in its current, in-development state, then have a look at the [pulsar-runner](https://github.com/confused-Techie/pulsar-runner) repository.
 
-<img src="./assets/pulsar-runner.png" height=200>
+<img src="/assets/pulsar-runner.png" height=200>
 
 ## Further installments in the modern Tree-sitter blog post series
 
-<img src="./assets/tree-sitter.png" height="150" />[^1]
+<img src="/assets/tree-sitter.png" height="150" />[^1]
 
 Continuing on from [last month's entry](https://pulsar-edit.dev/blog/20231004-Daeraxa-OctoberUpdate.html#modern-tree-sitter-blog-posts) we have posted two new blog posts by [@savetheclocktower] on the topic of Pulsar's modern Tree-sitter implementation. So if you haven't seen those posts, then you can continue onto parts [three](https://pulsar-edit.dev/blog/20231013-savetheclocktower-modern-tree-sitter-part-3.html) and [four](https://pulsar-edit.dev/blog/20231031-savetheclocktower-modern-tree-sitter-part-4.html) on the topics of syntax highlighting and indentation & code folding respectively.
 
 ## Community spotlight
 
-<img src="./assets/spotlight.png" height=200>
+<img src="/assets/spotlight.png" height=200>
 
 A big thanks this month to [@danfuzz] for the [identification](https://github.com/pulsar-edit/pulsar/issues/775) and [fix](https://github.com/pulsar-edit/pulsar/pull/776) for a problem with shell script syntax highlighting.
 

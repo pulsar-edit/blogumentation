@@ -23,11 +23,11 @@ Honestly there isn't much more to say as there wasn't really an overarching them
 
 Our first question was asking about upgrading our icons in Pulsar. We are updating our [Octicons](https://primer.style/design/foundations/icons/) version bundled with Pulsar to take advantage of changes made between v4.4.0 from 2016 to the current v18.3.0. As part of this we want to explore actually using these new icons in our default UI theme. The questions below are voting on preference between two styles of the new icons against the current theme:
 
-![survey2-icons](./assets/survey2-icons.png)
+![survey2-icons](/assets/survey2-icons.png)
 
 We asked which one was preferred out of these three mock-ups and for any additional comments people would like to make on it.
 
-![survey2-q1](./assets/survey2-q1.png)
+![survey2-q1](/assets/survey2-q1.png)
 
 The outcome of this is fairly clear in that there is a clear preference for the filled icons. This is something we still need to work on (the pictures were only mockups) so it probably won't be in the next release but this gives a us a good indication of the direction we should go with this.
 
@@ -86,11 +86,11 @@ We also had a bunch of comments saying they liked the current docs so we also ne
 
 Currently, in order to publish a package to the Pulsar package registry it is a requirement to make your package available in a GitHub repository. We were after info to know if this is something that is stopping any of our community from publishing packages.
 
-![survey2-q2](./assets/survey2-q2.png)
+![survey2-q2](/assets/survey2-q2.png)
 
 An interesting almost 50:50 split here, it makes us happy to see so many people are interested in creating packages so we will definitely take that into consideration with our documentation and processes in order to make the publishing and maintenance aspect as good as possible. I can see us asking more questions on the package development experience in the future!
 
-![survey2-q3](./assets/survey2-q3.png)
+![survey2-q3](/assets/survey2-q3.png)
 
 So this was quite enlightening. It is good to know that most people aren't being put off by the current requirement but it is also great to find out that our plans to support other forges or services are in demand. This was very much a question designed to find out if we were a) stopping people creating packages and b) making good use of our resources by looking to expand to other platforms.
 

@@ -82,7 +82,7 @@ Then finally, after 3 non-stop hours of reading the terms of more licenses than 
 
 Below you can see the abomination of a filter I wrote as I slowly went through all of the possible licenses.
 
-![SQL Filter Abomination](./assets/sql-filter-abomination.png)
+![SQL Filter Abomination](/assets/sql-filter-abomination.png)
 
 > And yes I'm aware that I could define an array and filter by that, but in my defense it was 1:39 AM after a few days of having my family over.
 

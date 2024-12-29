@@ -86,11 +86,11 @@ This is practically the exact rule for double-quoted strings from Pulsar’s bui
 
 Here’s a better way to visualize this:
 
-![string scopes](./assets/tree-sitter-string-scopes-diagram.png)
+![string scopes](/assets/tree-sitter-string-scopes-diagram.png)
 
 If you were to put your cursor anywhere within a buffer and run the **Editor: Log Cursor Scope** command, you’d see a list of scope names that are active at that buffer position, moving from broadest to narrowest:
 
-![log cursor scopes](./assets/tree-sitter-log-cursor-scope.png)
+![log cursor scopes](/assets/tree-sitter-log-cursor-scope.png)
 
 Why is it choosing those specific names? Because of [naming conventions established by TextMate](https://macromates.com/manual/en/language_grammars#naming_conventions) many years ago. When different language grammars try to abide by the same conventions for naming their scopes, it makes it easier to write syntax themes without constantly checking how they look in every possible language.
 

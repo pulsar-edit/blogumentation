@@ -14,13 +14,13 @@ An update on the status of our Chocolatey packages.
 
 <!-- more -->
 
-<img src="./assets/chocolatey.png" height="150" />
+<img src="/assets/chocolatey.png" height="150" />
 
 As you may know, we decided to officially support the [Chocolatey](https://chocolatey.org/) package manager on Windows back in April. However, we quickly ran into a few problems regarding the Pulsar binaries exceeding the size allowed. Unfortunately, this meant that Pulsar was "stuck" on version 1.103.0 whilst we tried to find a solution.
 
 Unfortunately, this went on for rather longer than expected, but thanks to the efforts of a number of people, including [@COLAMAroro], [@spiker985] and [@confused-techie], a solution was found to the problem, and, as a result, the latest regular release of Pulsar is once again available on Chocolatey. Not only that, but all the intermediate releases have also been provided.
 
-<img src="./assets/choco-pulsar.png" height=300><img src="./assets/choco-versions.png" height=300>
+<img src="/assets/choco-pulsar.png" height=300><img src="/assets/choco-versions.png" height=300>
 
 Whilst all this was going on, we also realised that the process of actually creating a new release for Chocolatey was a little inefficient and overall too manual, so we took the opportunity to also upgrade our release process into a semi-automated one so that all we have to do is press a few buttons and all the rest is done automatically.
 

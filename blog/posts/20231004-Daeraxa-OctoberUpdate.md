@@ -19,7 +19,7 @@ A warm welcome to this edition of our monthly blog post where we tell stories ab
 
 ## Introducing Pulsar Cooperative!
 
-<img src="./assets/community.png" height="200" />
+<img src="/assets/community.png" height="200" />
 
 One of our main reasons for trying to continue the Atom editor project (rather than moving to another editor or making one from scratch) was to preserve the huge number of community packages that had been created for Atom over the years. Unfortunately, as development slowed on Atom (and especially when the [sunset](https://github.blog/2022-06-08-sunsetting-atom/) was announced), some maintainers seem to have either archived their packages or are no longer looking to maintain them.
 
@@ -41,13 +41,13 @@ This isn't ready _just_ yet, but look out for an update right here on the blog (
 
 ## Modern Tree-sitter blog posts
 
-<img src="./assets/tree-sitter.png" height="150" />[^1]
+<img src="/assets/tree-sitter.png" height="150" />[^1]
 
 If you hadn't already seen or read them, [@savetheclocktower] has been writing a series of blog posts that go into detail about all the work that has been going on in Pulsar to support a modern implementation of [Tree-sitter](https://tree-sitter.github.io/tree-sitter/). Parts [one](https://pulsar-edit.dev/blog/20230925-savetheclocktower-modern-tree-sitter-part-1.html) and [two](https://pulsar-edit.dev/blog/20230927-savetheclocktower-modern-tree-sitter-part-2.html) are available right now and keep an eye on the Pulsar blog for more updates!
 
 ## Converting PPM's code from callbacks to async
 
-<img src="./assets/development.png" height="150" />
+<img src="/assets/development.png" height="150" />
 
 Community member [@Nemokosch/@twocolours]  has been spearheading the conversion of our [PPM codebase](https://github.com/pulsar-edit/ppm) to upgrade old JavaScript callback style to modern ES6 `async/await`.
 
@@ -130,7 +130,7 @@ So a big thank you again to [@Nemokosch] for working on this. You can see the pr
 
 ## macOS binary signing issues
 
-<img src="./assets/signing.png" height="200" />
+<img src="/assets/signing.png" height="200" />
 
 We discovered an issue recently where it turned out that our macOS binaries weren't being signed by our CI process. After some investigation and [changes to the CI environment](https://github.com/pulsar-edit/pulsar/pull/743) by [@DeeDeeG], [@confused-techie] and [@Meadowsys], the binaries are now correctly signed again.
 
@@ -138,7 +138,7 @@ This issue would only have affected the `1.109.0` releases; the current and upco
 
 ## Shields.io badges
 
-<img src="./assets/shields-io.png" height="100" />
+<img src="/assets/shields-io.png" height="100" />
 
 Thanks to [@confused-techie] and the team at [Shields.io](https://shields.io/), badges for Pulsar packages are now available! This means that if you make a package for Pulsar and publish it to the Pulsar Package Repository, you can now display download and stargazer stats on your README page.
 
@@ -152,13 +152,13 @@ So go grab your badges now to show off your package's stats!
 
 For those of you who use [GitHub Desktop](https://desktop.github.com/) you will now find (or will soon find) that Pulsar is available as an option for you to select as your editor of choice!
 
-<img src="./assets/github-desktop.png" height="500" />
+<img src="/assets/github-desktop.png" height="500" />
 
 Thanks to [@mdibella-dev] for adding this for the macOS version, [@confused-techie] for Windows and [@Daeraxa] for the Linux version!
 
 ## Community spotlight
 
-<img src="./assets/spotlight.png" height="200" />
+<img src="/assets/spotlight.png" height="200" />
 
 This month we want to give special attention to
 [@Nemokosch/@twocolours] with their [changes to the PPM codebase](#converting-ppm-s-code-from-callbacks-to-async) already discussed on this update. We love to see these kinds of contributions to Pulsar!

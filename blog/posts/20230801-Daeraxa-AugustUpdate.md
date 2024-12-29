@@ -21,7 +21,7 @@ So lets get on with it!
 
 ## Update to markdown-preview language identifiers
 
-<img src="./assets/markdown.png" height=200>
+<img src="/assets/markdown.png" height=200>
 
 [@confused-techie] has been working on a significant update to the way the `markdown-preview` package handles the highlighting of code inside code fences. The `markdown-preview` package is a package included with Pulsar that allows you to render Markdown documents directly within Pulsar without the need for any external tools. One of its features is the fact that it is able to perform syntax highlighting of code within "code fences" or "code blocks". That is, if you include a small snippet of javascript or shell script into your document, `markdown-preview` can provide the same level of syntax highlighting to your snippet in the preview pane as in the main editor.
 
@@ -47,7 +47,7 @@ You can try out this feature right now in our [rolling release](https://pulsar-e
 
 ## Moving PPM to our own NPM fork
 
-<img src="./assets/fork.png" height=200>
+<img src="/assets/fork.png" height=200>
 
 One issue we have had crop up again and again that has frustrated contributors and users alike is that Pulsar was using some older versions of some tools, particularly [node-gyp](https://github.com/nodejs/node-gyp/tree/main) (a tool for compiling native modules for Node.js), which had some very particular requirements for development tooling on the machine. For example, it was very particular about which version of the Visual Studio tools would work and which versions of Python could be used (i.e. not the latest releases).
 
@@ -57,7 +57,7 @@ So [@DeeDeeG] has done some work to [migrate to our own fork of NPM](https://git
 
 ## pulsar-updater package in the works
 
-<img src="./assets/info.png" height=200>
+<img src="/assets/info.png" height=200>
 
 A comment that we see come up somewhat regularly from both our team and community members alike is how Pulsar should deal with updates. Atom has an auto-update module that (at least on Windows and macOS) would allow you to update Atom from within the application. Unfortunately, these existing auto-update methods are either incompatible or unfeasible to implement within Pulsar (for example, the requirement that we would need to pay large amounts of money to sign our binaries). We also support (and plan to support) a much larger set of distribution methods than Atom - various Linux, Windows and macOS package managers as well as our "standard" binary releases, which means accounting for all of these different methods.
 
@@ -69,7 +69,7 @@ This feature is still something in the works so isn't available just yet, but yo
 
 ## Pulsar Package Repository feature detection is now live!
 
-<img src="./assets/detective.png" height=200><img src="./assets/package.png" height=200>
+<img src="/assets/detective.png" height=200><img src="/assets/package.png" height=200>
 
 A couple of months ago we announced that a [new feature was coming to our package backend](https://pulsar-edit.dev/blog/20230601-Daeraxa-JuneUpdate.html#community-package-feature-detection). The linked post goes into far more detail, but in a nutshell this is a feature that adds "feature detection" to our backend, allowing users and developers to have a much more cohesive experience when trying to install or develop new Pulsar packages that rely on features from other community packages.
 
@@ -77,7 +77,7 @@ We don't currently have any implementations of this feature in Pulsar itself jus
 
 ## Community spotlight
 
-<img src="./assets/spotlight.png" height=200>
+<img src="/assets/spotlight.png" height=200>
 
 As we always say (because it is absolutely true), this project would be nothing if it weren't for our wonderful community members, and we want to make sure we provide proper attribution when people directly contribute to Pulsar, not only through our release notes but on our social channels as well. So in light of that, a big thank you to [@arite](https://github.com/arite), [@cat-master21](https://github.com/cat-master21), [@2colors](https://github.com/2colours) and [@GuilleW](https://github.com/GuilleW) who have made contributions to the project which we have recently included.
 

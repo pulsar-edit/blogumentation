@@ -23,7 +23,7 @@ So with all that covered let's get on with it!
 
 ## ARM builds problem
 
-<img src="./assets/Linux-ARM.jpg" height=200>
+<img src="/assets/Linux-ARM.jpg" height=200>
 
 Some of you may have noticed that we had a bit of a problem recently in producing binaries for ARM on Linux which, for the most part shouldn't have affected anyone except ARM Linux users, had a knock-on effect with some of the community-maintained packages. Some of these packages (and associated package managers) may have seen a delay receiving an update to 1.106.0.
 
@@ -33,7 +33,7 @@ This has now been resolved, so if you were waiting for an ARM binary you can now
 
 ## Subreddit closure/reopening and possible Lemmy community
 
-<img src="./assets/reddit-private.png" height=200><img src="./assets/lemmy-icon.png" height=200>[^1]
+<img src="/assets/reddit-private.png" height=200><img src="/assets/lemmy-icon.png" height=200>[^1]
 
 You may or may not be aware that we decided to [close our subreddit](https://www.reddit.com/r/pulsaredit/comments/146ja5a/rpulsaredit_is_taking_part_in_the_reddit_blackout/) as part of the protest against the Reddit API changes. The subreddit remained closed after the original 48 hours for various reasons.
 
@@ -45,7 +45,7 @@ So if you are interested in using either Reddit or Lemmy, please have a look at 
 
 ## Antivirus `es5-ext` issue
 
-<img src="./assets/malware.png" height=200>
+<img src="/assets/malware.png" height=200>
 
 Some users have been reporting that various antivirus applications and virus scanning tools have been identifying Pulsar as a virus due to the `es5-ext` package.
 
@@ -59,7 +59,7 @@ In our experiments, binaries built in this manner are no longer being flagged by
 
 ## Pulsar available on deb-get
 
-<img src="./assets/deb-get-logo.png" height=200>[^2]
+<img src="/assets/deb-get-logo.png" height=200>[^2]
 
 We want to put Pulsar on all major package managers, but it can be trickier than it looks. Various package managers have special requirements and restrictions, so it behoves us to move slowly and make sure we understand those constraints.
 
@@ -78,7 +78,7 @@ So if you are on a Debian based distro and want a quick and easy way to install 
 
 ## Tree-sitter migration of TOML grammar
 
-<img src="./assets/toml.png" height=200>[^3]
+<img src="/assets/toml.png" height=200>[^3]
 
 In our [last regular release](https://pulsar-edit.dev/blog/20230616-Daeraxa-v1.106.0.html), we made a big deal about our modern Tree-sitter migration and the new grammars that come with it.
 
@@ -90,7 +90,7 @@ As ever we are after feedback, so if you use this new TOML Tree-sitter grammar (
 
 ## `less-cache` package update
 
-<img src="./assets/less.png" height=200>[^4]
+<img src="/assets/less.png" height=200>[^4]
 
 This is still in the works but [@confused-techie] has been making some updates to be added in the near future that bumps the version of `less-cache` that we are using.
 

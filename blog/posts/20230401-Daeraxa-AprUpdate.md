@@ -25,7 +25,7 @@ Now that has been dealt with, onto the updates!
 
 ## i18n (internationalization) Efforts
 
-<img src="./assets/i18n.png" height="150" />[^1]
+<img src="/assets/i18n.png" height="150" />[^1]
 
 [@meadowsys] and [@confused-techie] have been making great progress on the efforts to provide native i18n functionality within Pulsar. This means you will be able to select your own locale/language and Pulsar will be able to translate the various menus and items for you. Of course the big caveat here is that currently none of it is translated so if you have the ability to then we will be asking the community to provide translations wherever possible. To do this we are currently planning to use [Crowdin](https://crowdin.pulsar-edit.dev/).
 
@@ -33,7 +33,7 @@ We will make a bigger announcement on this feature once it is ready.
 
 ## Tree-sitter Modernization
 
-<img src="./assets/tree-sitter.png" height="150" />[^2]
+<img src="/assets/tree-sitter.png" height="150" />[^2]
 
 Another month and more progress has been made on this front, particularly by [@maurício szabo] and [@savetheclocktower], to get our tree-sitter implementation modernized. Some users noticed that opening some languages on Pulsar, like C++, Java, and Ruby, makes some syntax highlighting tokens different from what they were in Atom, and most of the time, highlighting is either wrong or some tokens are simply missing.
 
@@ -45,7 +45,7 @@ For more background info see some of the previous updates or [Maurício's blog p
 
 ## TextMate Grammar Library & Superstring Migration to WASM
 
-<img src="./assets/webassembly.png" height="150" />[^3]
+<img src="/assets/webassembly.png" height="150" />[^3]
 
 Atom and current versions of Pulsar use a library called [first-mate](https://github.com/pulsar-edit/first-mate) that uses [node-oniguruma](https://github.com/pulsar-edit/node-oniguruma/) to parse the legacy TextMate grammars (the original ones before Atom moved to tree-sitter as its primary grammar choice). Like tree-sitter and superstring, this is something that is preventing our migration to modern versions of Electron so [@maurício szabo] and [@savetheclocktower] have been working on this to instead migrate to a new library we are calling `second-mate` which uses [vscode-oniguruma](https://github.com/microsoft/vscode-oniguruma) instead which is WASM based. Funny how things eventually come back around to borrowing from VSC instead...
 
@@ -56,13 +56,13 @@ Superstring is the library at the heart of the editor itself so this is quite a 
 
 [@confused-techie] has made some changes to the package backend and website to support badges which can be applied to packages. Currently these can only be added by the Pulsar team but we will hopefully be looking to roll out something to package authors later. Essentially this allows us to add some additional metadata to a package to give information to Pulsar users. This is particularly important for Pulsar as a fork of Atom because we brought with us the vast majority of the Atom packages that were created over the years (see [@confused-techie]'s previous [blog posts](https://pulsar-edit.dev/tag/backend/) on this subject for more info').
 
-![backend-badge.png](./assets/backend-badge.png)
+![backend-badge.png](/assets/backend-badge.png)
 
 Currently we have rolled out an `Outdated` badge - this is designed so that we can help Pulsar users with additional info about particular packages which we know are being actively developed but have not been updated by the authors to the Pulsar backend. For example the [hydrogen package](https://web.pulsar-edit.dev/packages/hydrogen) (shown above) has some problems working with Pulsar, changes have been added to it to make it work but as these changes have not been pushed to the backend by the package authors the only way of getting it is to install them using `ppm/pulsar -p` using the [GitHub/Git Remotes](https://pulsar-edit.dev/docs/launch-manual/sections/using-pulsar/#github-or-git-remotes) functionality. To see more info on the specific reason a badge was added, you can click the badge and it will bring you to a document of our backend admin actions which include the reason for the addition as well as info to help.
 
 Not all badges are intended to be negative. We plan to offer badges to help the community such as `Looking for Maintainers` if a package author wishes for some help or to hand over the package maintenance entirely. We have already added a `Made for Pulsar!` badge to indicate packages which have been published or updated to the Pulsar backend to help people work out which packages are current and being updated as well as help prevent problems with installing very old and unmaintained Atom packages.
 
-![backend-badge-made.png](./assets/backend-badge-made.png)
+![backend-badge-made.png](/assets/backend-badge-made.png)
 
 You can read the [badge specification](https://github.com/pulsar-edit/package-backend/blob/main/docs/reference/badge-spec.md) for more info.
 
@@ -70,7 +70,7 @@ Badges are not currently available in Pulsar itself but we are working on it!
 
 ## Package Service Filtering
 
-<img src="./assets/network.png" height="150" />[^4]
+<img src="/assets/network.png" height="150" />[^4]
 
 An interesting update to our backend that allows for new queries to be made for finding out what packages provide or consume a given service. This can be used in a number of ways, users can easily filter by package functionality rather than just keywords and developers/packages authors can search to see what packages may provide or consume a given service to help create a more interconnected set of packages.
 
@@ -80,7 +80,7 @@ This functionality is currently only available via the API and website query but
 
 ## Bundling `ppm` Within Pulsar
 
-<img src="./assets/node-package.png" height="150" />[^5]
+<img src="/assets/node-package.png" height="150" />[^5]
 
 As you may know, `ppm` is the `Pulsar Package Manager` —  the thing you interact with when you want to install or update packages. Most people will probably only use this by interacting with the packages menu inside Pulsar but `ppm` is also supplied as a command line applications accessible via either `ppm` or `pulsar -p`. One issue with this approach is that we have to account for all of the different OSs and packaging methods which means adding it to `$PATH` correctly on each OS etc. (This was even an issue with Atom which had a special macOS only command to install the `apm` command line again).
 
@@ -88,7 +88,7 @@ With this change we hopefully avoid all of this as it is simply part of the main
 
 ## Chocolatey
 
-<img src="./assets/chocolatey.png" height="150" />
+<img src="/assets/chocolatey.png" height="150" />
 
 For those unfamiliar, [Chocolately](https://chocolatey.org/) is a package manager for Windows and something we have been wanting to officially support for a while now. Whilst we have not got anything available yet (don't worry we will make an announcement once it is) we have a bunch of community members who have been working on this and helping out so a big thank you to community members @HighHarmonics, @il_mix and @COLAMAroro for their contributions here.
 
