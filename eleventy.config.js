@@ -56,6 +56,10 @@ module.exports = (eleventyConfig) => {
       if (typeof value !== "string") {
         return "";
       }
+      if (!value.includes("<!-- more -->")) {
+        // If the post for some reason doesn't include this summary delimiter
+        return "";
+      }
       const summary = value.split("<!-- more -->")[0];
       return summary ?? "";
     }
