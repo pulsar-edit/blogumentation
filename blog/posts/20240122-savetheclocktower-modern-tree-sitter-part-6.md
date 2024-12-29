@@ -30,9 +30,9 @@ You might already use the [`symbols-view` package](https://github.com/pulsar-edi
 Choosing the `render` symbol in your symbols list will move the editor to the line where `render` is defined.
 
 <video style="max-width: 100%" autoplay controls muted loop>
-	<source src="@source/blog/assets/symbols-view-demo.webm" type="video/webm">
-	<source src="@source/blog/assets/symbols-view-demo.mp4" type="video/mp4">
-	<p>Your browser doesn’t support HTML video. <a href="@source/blog/assets/symbols-view-demo.mp4">Download this video</a> instead.</p>
+	<source src="/assets/symbols-view-demo.webm" type="video/webm">
+	<source src="/assets/symbols-view-demo.mp4" type="video/mp4">
+	<p>Your browser doesn’t support HTML video. <a href="/assets/symbols-view-demo.mp4">Download this video</a> instead.</p>
 </video>
 
 This is a time-saving feature. But how does it work? How does Pulsar know which items to put in the list? How does it know where your `render` method is defined? You might be surprised: it uses an ancient program called `ctags` — specifically a fork called [Exuberant Ctags](https://ctags.sourceforge.net/).
@@ -81,7 +81,7 @@ The built-in `ctags` provider can be spun off into a package called `symbol-prov
 
 ### How will it work?
 
-I’ve [talked about why](/blog/20230927-savetheclocktower-modern-tree-sitter-part-2.html) Pulsar chose not to leverage the built-in `highlights.scm` query files that exist for most Tree-sitter parsers: we needed richer information than they could provide. Luckily, that’s not true for other kinds of files! Many parsers also provide `tags.scm` query files, and they’re easy for us to consume as-is.
+I’ve [talked about why](/posts/20230927-savetheclocktower-modern-tree-sitter-part-2/) Pulsar chose not to leverage the built-in `highlights.scm` query files that exist for most Tree-sitter parsers: we needed richer information than they could provide. Luckily, that’s not true for other kinds of files! Many parsers also provide `tags.scm` query files, and they’re easy for us to consume as-is.
 
 When a user presses <kbd>Ctrl+R</kbd> / <kbd>Cmd+R</kbd>, we can run a query against the current buffer. Any node that is captured as `@name` in a `tags.scm` file can be represented as a symbol. Often the node will be contained in a larger capture called (for example) `@definition.function`; we can detect that and infer that the text captured by `@name` refers to a function.
 
@@ -108,9 +108,9 @@ For now, our Tree-sitter symbol provider can only suggest symbols in the current
 Dive into a definition with <kbd>Ctrl+Alt+Down</kbd> / <kbd>Cmd+Alt+Down</kbd>, then return to the surface with <kbd>Ctrl+Alt+Up</kbd> / <kbd>Cmd+Alt+Up</kbd>:
 
 <video style="max-width: 100%" autoplay controls muted loop>
-	<source src="@source/blog/assets/go-to-declaration-example.webm" type="video/webm">
-	<source src="@source/blog/assets/go-to-declaration-example.mp4" type="video/mp4">
-	<p>Your browser doesn’t support HTML video. <a href="@source/blog/assets/go-to-declaration-example.mp4">Download this video</a> instead.</p>
+	<source src="/assets/go-to-declaration-example.webm" type="video/webm">
+	<source src="/assets/go-to-declaration-example.mp4" type="video/mp4">
+	<p>Your browser doesn’t support HTML video. <a href="/assets/go-to-declaration-example.mp4">Download this video</a> instead.</p>
 </video>
 
 Here I’ve demonstrated it on a TypeScript type, but it’ll work on functions and classes and other types of things, too.
@@ -166,9 +166,9 @@ Because common languages like JavaScript, Python, Ruby, and many others have ful
 How does this actually improve the `symbols-view` experience? Let’s see what our original example looks like with a Tree-sitter symbol provider:
 
 <video style="max-width: 100%" autoplay controls muted loop>
-	<source src="@source/blog/assets/symbols-view-tree-sitter-demo.webm" type="video/webm">
-	<source src="@source/blog/assets/symbols-view-tree-sitter-demo.mp4" type="video/mp4">
-	<p>Your browser doesn’t support HTML video. <a href="@source/blog/assets/symbols-view-tree-sitter-demo.mp4">Download this video</a> instead.</p>
+	<source src="/assets/symbols-view-tree-sitter-demo.webm" type="video/webm">
+	<source src="/assets/symbols-view-tree-sitter-demo.mp4" type="video/mp4">
+	<p>Your browser doesn’t support HTML video. <a href="/assets/symbols-view-tree-sitter-demo.mp4">Download this video</a> instead.</p>
 </video>
 
 The richness of the metadata we get from these sources has allowed us to enhance the `symbols-view` UI, too! You’ll be shown the “kind” of thing that a symbol is — class, function, constant, et cetera. In many cases, these kinds will be illustrated with icons. Visit the package settings page for `symbols-view` to explore the possibilities.
@@ -183,7 +183,7 @@ And it’s early days for [`pulsar-ide-typescript-alpha`](https://web.pulsar-edi
 
 ## Conclusion
 
-After overhauling Pulsar’s [syntax highlighting](/blog/20231013-savetheclocktower-modern-tree-sitter-part-3.html), [indentation, code folding](/blog/20231031-savetheclocktower-modern-tree-sitter-part-4.html), and [language injections](/blog/20231110-savetheclocktower-modern-tree-sitter-part-5.html), we’ve found _yet another_ way that Tree-sitter can improve our existing editor experience. But in this case, there’s an _even better_ improvement just around the corner: IDE backend packages and language servers. I’ll be sure to go into more detail on the Pulsar IDE experience in future posts.
+After overhauling Pulsar’s [syntax highlighting](/posts/20231013-savetheclocktower-modern-tree-sitter-part-3/), [indentation, code folding](/posts/20231031-savetheclocktower-modern-tree-sitter-part-4/), and [language injections](/posts/20231110-savetheclocktower-modern-tree-sitter-part-5/), we’ve found _yet another_ way that Tree-sitter can improve our existing editor experience. But in this case, there’s an _even better_ improvement just around the corner: IDE backend packages and language servers. I’ll be sure to go into more detail on the Pulsar IDE experience in future posts.
 
 Integrating Tree-sitter has been a difficult project. I started working on it in earnest in February of 2023; it shipped in June behind an experimental flag; and it’s finally the default grammar type in January of 2024.
 

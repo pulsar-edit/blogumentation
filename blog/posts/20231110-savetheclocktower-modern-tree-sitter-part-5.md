@@ -257,9 +257,9 @@ Picking a winner is the obvious approach for indentation when you think it throu
 But aggregating is the obvious approach for other scenarios. Tree-sitter grammars get to support Pulsar’s **Editor: Select Smaller Syntax Node** and **Editor: Select Larger Syntax Node** commands (you don’t know you need them in your life until you give them a try!) and those commands should work properly across injection boundaries. So when either command is invoked with the cursor at a given position, we should figure out which nodes contain that point _regardless of which parse tree owns them_. Then we can arrange those nodes from smallest to largest.
 
 <video style="max-width: 100%" autoplay controls muted loop>
-	<source src="@source/blog/assets/tree-sitter-select-larger-syntax-node.webm" type="video/webm">
-	<source src="@source/blog/assets/tree-sitter-select-larger-syntax-node.mp4" type="video/mp4">
-	<p>Your browser doesn’t support HTML video. <a href="@source/blog/assets/tree-sitter-select-larger-syntax-node.mp4">Download this video</a> instead.</p>
+	<source src="/assets/tree-sitter-select-larger-syntax-node.webm" type="video/webm">
+	<source src="/assets/tree-sitter-select-larger-syntax-node.mp4" type="video/mp4">
+	<p>Your browser doesn’t support HTML video. <a href="/assets/tree-sitter-select-larger-syntax-node.mp4">Download this video</a> instead.</p>
 </video>
 
 You can see the results here. As I expand the selection by invoking **Select Larger Syntax Node** over and over, the selection starts with nodes in the CSS injection, jumps to nodes in the parent JavaScript injection, then jumps again to nodes in the root HTML injection.
