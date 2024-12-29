@@ -1,6 +1,3 @@
-const less = require("less");
-const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-const PRISM_LANGUAGE_SCM = require("./plugins/prism-language-scm.js");
 const pulsarEleventyConfig = require("11ty-config");
 
 module.exports = (eleventyConfig) => {
