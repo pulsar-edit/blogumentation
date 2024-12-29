@@ -18,10 +18,10 @@
         <!-- The above text will be changed to the proper locale by JavaScript -->
       </span>
       <span class="block__details-category icon icon-list-unordered">
-        <%= node.data.category.join(", ") %>
+        <%= node.data.category?.join(", ") ?? "" %>
       </span>
       <span class="block__details-tags icon icon-tag">
-        <%= node.data.tag.join(", ") %>
+        <%= node.data.tag?.join(", ") ?? "" %>
       </span>
 
     </div>

@@ -16,10 +16,14 @@
               <%= date.toLocaleString() %>
             </span>
             <span class="header__details-category icon icon-list-unordered">
+              <% if (typeof category !== "undefined" && Array.isArray(category)) { %>
               <%= category.join(", ") %>
+              <% } %>
             </span>
             <span class="header__details-tags icon icon-tag">
+              <% if (typeof tag !== "undefined" && Array.isArray(tag)) { %>
               <%= tag.join(", ") %>
+              <% } %>
             </span>
           </div>
         </section>
