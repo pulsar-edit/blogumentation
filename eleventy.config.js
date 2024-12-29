@@ -37,6 +37,7 @@ module.exports = (eleventyConfig) => {
 
   // copy the data from static to static
   eleventyConfig.addPassthroughCopy({ "static": "static" });
+  eleventyConfig.addPassthroughCopy({ "assets": "assets" });
 
   // Add our custom collection of blog posts
   eleventyConfig.addCollection("blog-posts", (collectionApi) => {
@@ -44,6 +45,7 @@ module.exports = (eleventyConfig) => {
   });
 
   eleventyConfig.addWatchTarget("./less/");
+  eleventyConfig.addWatchTarget("./layouts/");
 
   // Since 11ty doesn't natively provide EJS with filters, we have to manually
   // define our helpers like this. In a magical way found by @savetheclocktower
