@@ -8,6 +8,20 @@
       <main class="container">
         <section class="header">
           <h1 class="title" id="title"><%= title %></h1>
+          <div class="header__details">
+            <span class="header__details-author icon icon-person">
+              <%= author %>
+            </span>
+            <span class="header__details-date icon icon-calendar" data-date="<%= date.toISOString() %>">
+              <%= date.toLocaleString() %>
+            </span>
+            <span class="header__details-category icon icon-list-unordered">
+              <%= category.join(", ") %>
+            </span>
+            <span class="header__details-tags icon icon-tag">
+              <%= tag.join(", ") %>
+            </span>
+          </div>
         </section>
 
         <%- content %>
@@ -15,5 +29,5 @@
       </main>
     </div>
   </body>
-  
+
 <%- include("footer") %>

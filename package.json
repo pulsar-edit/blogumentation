@@ -4,7 +4,9 @@
   "description": "",
   "scripts": {
     "build": "npx @11ty/eleventy",
-    "serve": "npx @11ty/eleventy --serve"
+    "serve": "npx @11ty/eleventy --serve",
+    "build:debug": "cross-env DEBUG=Eleventy* npm run build",
+    "serve:debug": "cross-env DEBUG=Eleventy* npm run serve"
   },
   "keywords": [],
   "author": "confused-Techie",
@@ -14,8 +16,9 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
+    "cross-env": "^7.0.3",
     "less": "^4.2.0",
     "markdown-it": "^14.1.0",
-    "skeleton-less": "github:WhatsNewSaes/Skeleton-Less"
+    "terser": "^5.37.0"
   }
 }

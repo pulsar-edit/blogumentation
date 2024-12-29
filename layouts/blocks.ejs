@@ -1,0 +1,31 @@
+
+<div class="blocks">
+
+  <% for (const node of blocks) { %>
+  <section class="block">
+    <header class="block__header">
+      <a href="<%= node.page.url -%>"><%= node.data.title -%></a>
+    </header>
+    <div class="block__summary">
+      <%- helpers.findPostSummary(node.content) -%>
+    </div>
+    <div class="block__details">
+      <span class="block__details-author icon icon-person">
+        <%= node.data.author %>
+      </span>
+      <span class="block__details-date icon icon-calendar" data-date="<%= node.data.date.toISOString() %>">
+        <%= node.data.date.toLocaleDateString() %>
+        <!-- The above text will be changed to the proper locale by JavaScript -->
+      </span>
+      <span class="block__details-category icon icon-list-unordered">
+        <%= node.data.category.join(", ") %>
+      </span>
+      <span class="block__details-tags icon icon-tag">
+        <%= node.data.tag.join(", ") %>
+      </span>
+
+    </div>
+  </section>
+  <% } %>
+
+</div>

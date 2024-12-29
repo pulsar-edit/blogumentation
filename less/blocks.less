@@ -1,0 +1,18 @@
+.blocks {
+  columns: 1 !important; // Unset the default styling
+}
+
+.block {
+  text-align: center;
+  margin-bottom: 3rem !important; // Override default styling
+  border-bottom: .5rem solid var(--thematic-break-color);
+  padding-bottom: 1.5rem;
+
+  &__details {
+    font-size: 1.5rem;
+
+    &>span {
+      margin-right: .5em;
+    }
+  }
+}

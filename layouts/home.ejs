@@ -1,5 +1,5 @@
-<!-- Home page of site -->
-<%- include("header") %>
+<!-- Home page for the website -->
+<%-include("header")%>
 
   <body class="layout--home">
     <%- include("page_header") %>
@@ -8,13 +8,16 @@
         <section class="header">
           <h1 class="title" id="title"><%=title%></h1>
 
-          <section class="header_description">
+          <section class="header__description">
             <%- content %>
           </section>
         </section>
+
+
+        <%-include("blocks", { blocks: collections["blog-posts"] })%>
 
       </main>
     </div>
   </body>
 
-<%- include("footer") %>
+<%-include("footer")%>
