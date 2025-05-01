@@ -1,7 +1,7 @@
 const less = require("less");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const PRISM_LANGUAGE_SCM = require("./plugins/prism-language-scm.js");
-
+const { indexPostsBy, flatPaginate } = require('./plugins/pagination-helpers');
 module.exports = (eleventyConfig) => {
 
   eleventyConfig.setServerOptions({
@@ -52,6 +52,34 @@ module.exports = (eleventyConfig) => {
   // Add our custom collection of blog posts
   eleventyConfig.addCollection("blog-posts", (collectionApi) => {
     return collectionApi.getFilteredByGlob("blog/posts/*.md").reverse();
+  });
+
+  // Build a collection of pages that list posts by tag name and are themselves
+  // paginated.
+  eleventyConfig.addCollection('tagPages', (collectionApi) => {
+    let allPosts = collectionApi.getFilteredByGlob("blog/posts/*.md").reverse();
+    let index = indexPostsBy(allPosts, (post) => post.data.tag);
+    let result = flatPaginate(index, {
+      chunkSize: 20,
+      // /tagged/foo
+      slug: 'tagged',
+      title: (tag) => `Posts tagged with ${tag}`
+    });
+    return result;
+  });
+
+  // Build a collection of pages that list posts by category name and are
+  // themselves paginated.
+  eleventyConfig.addCollection("categoryPages", (collectionApi) => {
+    let allPosts = collectionApi.getFilteredByGlob("blog/posts/*.md").reverse();
+    let index = indexPostsBy(allPosts, (post) => post.data.category);
+    let result = flatPaginate(index, {
+      chunkSize: 20,
+      // /category/foo
+      slug: 'category',
+      title: (category) => `Posts in category ${category}`
+    });
+    return result;
   });
 
   eleventyConfig.addWatchTarget("./less/");

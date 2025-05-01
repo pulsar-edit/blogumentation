@@ -1,4 +1,3 @@
-
 <div class="blocks">
 
   <% for (const node of blocks) { %>
@@ -13,19 +12,52 @@
       <span class="block__details-author icon icon-person">
         <%= node.data.author %>
       </span>
-      <span class="block__details-date icon icon-calendar" data-date="<%= node.data.date.toISOString() %>">
-        <%= node.data.date.toLocaleDateString() %>
+      <span class="block__details-date icon icon-calendar" data-date="<%= node.data.date.toISOString() %>"><%= node.data.date.toLocaleDateString() -%>
         <!-- The above text will be changed to the proper locale by JavaScript -->
       </span>
+      <% if ((node.data.category ?? []).length > 0) {%>
       <span class="block__details-category icon icon-list-unordered">
-        <%= node.data.category?.join(", ") ?? "" %>
+        <% for (let [index, category] of node.data.category.entries()) { %>
+          <% let isLast = index === node.data.category.length - 1 %>
+          <a href="/category/<%= category %>"><%= category %></a><%= isLast ? '' : ', ' %>
+        <% } %>
       </span>
+      <% } %>
+      <% if ((node.data.tag ?? []).length > 0) {%>
       <span class="block__details-tags icon icon-tag">
-        <%= node.data.tag?.join(", ") ?? "" %>
+        <% for (let [index, tag] of node.data.tag.entries()) { %>
+          <% let isLast = index === node.data.tag.length - 1 %>
+          <a href="/tagged/<%= tag %>"><%= tag %></a><%= isLast ? '' : ', ' %>
+        <% } %>
       </span>
+      <% } %>
 
     </div>
   </section>
+  <% } %>
+
+  <% if (locals.pagination?.hrefs.length > 1) { %>
+    <% let currentPageIndex = pagination.hrefs.findIndex((href) => href === page.url) + 1; %>
+    <% let currentPageNumber = currentPageIndex + 1; %>
+    <nav class="pagination">
+      <ol class="pagination__list" data-current-number="<%= currentPageNumber %>" data-current-index="<%= currentPageIndex %>">
+        <% if (pagination.href.previous) { %>
+          <li class="pagination__list-entry"><a class="pagination__box" href="<%= pagination.href.previous %>">&larr;</a></li>
+        <% } %>
+        <% for (const [index, href] of pagination.hrefs.entries()) { %>
+          <% let isCurrent = href === page.url %>
+          <li class="pagination__list-entry <%= isCurrent ? 'pagination__list-entry--current' : '' %>">
+            <% if (isCurrent) { -%>
+              <span class="pagination__box"><%= index + 1 %></span>
+            <% } else { -%>
+              <a class="pagination__box" href="<%= href %>"><%= index + 1 %></a></li>
+            <% } -%>
+        <% } %>
+        <% if (pagination.href.next) { %>
+          <li class="pagination__list-entry"><a class="pagination__box" href="<%= pagination.href.next %>">&rarr;</a></li>
+        <% } %>
+      </ol>
+    </nav>
   <% } %>
 
 </div>
