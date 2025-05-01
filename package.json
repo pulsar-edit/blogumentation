@@ -20,6 +20,7 @@
     "cross-env": "^7.0.3",
     "less": "^4.2.0",
     "markdown-it": "^14.1.0",
+    "markdown-it-anchor": "^8.6.7",
     "terser": "^5.37.0"
   }
 }

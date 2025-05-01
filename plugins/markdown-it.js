@@ -5,4 +5,6 @@ const md = MarkdownIT({
 });
 
 module.exports =
-md;
+md.use(
+  require("markdown-it-anchor")
+);
