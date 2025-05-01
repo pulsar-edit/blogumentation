@@ -4,6 +4,9 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const PRISM_LANGUAGE_SCM = require("./plugins/prism-language-scm.js");
 const { indexPostsBy, flatPaginate } = require('./plugins/pagination-helpers');
 module.exports = (eleventyConfig) => {
+  // Don't generate JS files when we encounter `*.11tydata.js` files; those are
+  // metadata.
+  eleventyConfig.ignores.add("**/*.11tydata.js");
 
   eleventyConfig.setServerOptions({
     // Prevent the server from trying to do a clever hot-reload when only
