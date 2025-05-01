@@ -27,7 +27,7 @@ module.exports = {
       return pageNumber === 0 ? '/' : `${pageNumber + 1}/`;
     }
 
-    // It appears that we're allowed to return `undefined` from this function —
-    // 11ty seems to fall back to its default permalink logic.
+    // If we get this far, 11ty should fall back to its ordinary permalink
+    // strategy.
   }
 };

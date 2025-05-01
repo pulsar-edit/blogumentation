@@ -125,15 +125,18 @@ module.exports = (eleventyConfig) => {
       if (typeof value !== "string") {
         return "";
       }
-      if (!value.includes("<!-- more -->")) {
-        // If the post for some reason doesn't include this summary delimiter
-        return "";
+
+      if (value.includes("<!-- more -->")) {
+        return value.split('<!-- more -->')[0]?.trim();
       }
-      const summary = value.split("<!-- more -->")[0];
-      return summary ?? "";
+
+      // TODO: This is an inferior strategy. We should enforce presence of
+      // `<!-- more -->` (or some other summary method) on future blog posts
+      // and correct any that already exist and are missing summaries.
+      let summary = value.substring(0, 200);
+      return summary.length === 200 ? `${summary}…` : summary;
     }
   };
-
   // return config
   return {
     markdownTemplateEngine: false,
