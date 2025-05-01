@@ -1,4 +1,5 @@
 const less = require("less");
+const { feedPlugin } = require('@11ty/eleventy-plugin-rss');
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const PRISM_LANGUAGE_SCM = require("./plugins/prism-language-scm.js");
 const { indexPostsBy, flatPaginate } = require('./plugins/pagination-helpers');
@@ -11,9 +12,29 @@ module.exports = (eleventyConfig) => {
     domDiff: false
   });
 
+  eleventyConfig.addPlugin(require("@11ty/eleventy-plugin-ejs"));
   eleventyConfig.addPlugin(syntaxHighlight, {
     init({ Prism }) {
       Prism.languages.scm = PRISM_LANGUAGE_SCM;
+    }
+  });
+
+  eleventyConfig.addPlugin(feedPlugin, {
+    type: "atom", // or "rss", "json"
+    outputPath: "/feed.xml",
+    collection: {
+      name: "blog-posts-feed", // iterate over `collections.posts`
+      limit: 10,     // 0 means no limit
+    },
+    metadata: {
+      language: "en",
+      title: "Pulsar Blog",
+      subtitle: "The blog for Pulsar: a community-led, hyper-hackable text editor.",
+      base: "https://blog.pulsar-edit.dev/",
+      author: {
+        name: "Pulsar Team",
+        email: "", // Optional
+      }
     }
   });
 
@@ -48,6 +69,13 @@ module.exports = (eleventyConfig) => {
   // Ensure the CNAME file is in the root dir
   eleventyConfig.addPassthroughCopy({ "static/CNAME": "CNAME" });
   eleventyConfig.addPassthroughCopy({ "assets": "assets" });
+
+  // HACK: The feed plugin seems to expect that your blog posts are in
+  // chronological order, rather than reverse chronological. So for now let's
+  // just define a collection that is chronological solely for feed use.
+  eleventyConfig.addCollection("blog-posts-feed", (collectionApi) => {
+    return collectionApi.getFilteredByGlob("blog/posts/*.md");
+  })
 
   // Add our custom collection of blog posts
   eleventyConfig.addCollection("blog-posts", (collectionApi) => {
