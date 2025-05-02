@@ -3,7 +3,7 @@
   <% for (const node of blocks) { %>
   <section class="block">
     <header class="block__header">
-      <a href="<%= node.page.url -%>"><%= node.data.title -%></a>
+      <a href="<%= node.page.url %>"><%= node.data.title %></a>
     </header>
     <div class="block__summary">
       <%- helpers.findPostSummary(node.content) -%>
@@ -12,9 +12,9 @@
       <span class="block__details-author icon icon-person">
         <%= node.data.author %>
       </span>
-      <span class="block__details-date icon icon-calendar" data-date="<%= node.data.date.toISOString() %>"><%= node.data.date.toLocaleDateString() -%>
-        <!-- The above text will be changed to the proper locale by JavaScript -->
-      </span>
+      <time class="block__details-date icon icon-calendar" datetime="<%= node.data.date.toISOString() %>"><%= node.data.date.toLocaleDateString() -%></time>
+      <!-- The above text will be changed to the proper locale by JavaScript -->
+
       <% if ((node.data.category ?? []).length > 0) {%>
       <span class="block__details-category icon icon-list-unordered">
         <% for (let [index, category] of node.data.category.entries()) { %>
@@ -31,7 +31,6 @@
         <% } %>
       </span>
       <% } %>
-
     </div>
   </section>
   <% } %>
