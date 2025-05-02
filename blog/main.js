@@ -1,11 +1,14 @@
 window.onload = () => {
   // Convert any dates that may be shown on page to match the date in the locale
   // that the page is being viewed in.
-  const datesToConvert = document.querySelectorAll("[data-date]");
+  const datesToConvert = document.querySelectorAll("time[datetime]");
+
+  let formatter = new Intl.DateTimeFormat(undefined, { dateStyle: 'full' });
 
   for (const item of datesToConvert) {
-    console.log(item);
-    let properDate = new Date(item.dataset.date);
+    let properDate = new Date(item.getAttribute('datetime'));
+    let title = formatter.format(properDate);
+    item.setAttribute('title', title);
     item.innerText = properDate.toLocaleDateString();
   }
 };

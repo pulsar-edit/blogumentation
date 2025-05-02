@@ -15,8 +15,7 @@
             <span class="header__details-author icon icon-person">
               <%= author %>
             </span>
-            <span class="header__details-date icon icon-calendar" data-date="<%= date.toISOString() %>"><%= date.toLocaleString() %>
-            </span>
+            <time class="header__details-date icon icon-calendar" datetime="<%= date.toISOString() %>"><%= date.toLocaleString() %></time>
             <% if (Array.isArray(locals.category) && locals.category.length > 0) { %>
             <span class="header__details-category icon icon-list-unordered">
               <% for (let [index, category] of locals.category.entries()) { %>
