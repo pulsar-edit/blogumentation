@@ -27,7 +27,7 @@
       <span class="block__details-tags icon icon-tag">
         <% for (let [index, tag] of node.data.tag.entries()) { %>
           <% let isLast = index === node.data.tag.length - 1 %>
-          <a href="/tagged/<%= tag %>"><%= tag %></a><%= isLast ? '' : ', ' %>
+          <a href="/tag/<%= tag %>"><%= tag %></a><%= isLast ? '' : ', ' %>
         <% } %>
       </span>
       <% } %>

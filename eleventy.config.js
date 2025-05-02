@@ -92,8 +92,8 @@ module.exports = (eleventyConfig) => {
     let index = indexPostsBy(allPosts, (post) => post.data.tag);
     let result = flatPaginate(index, {
       chunkSize: 20,
-      // /tagged/foo
-      slug: 'tagged',
+      // /tag/foo
+      slug: 'tag',
       title: (tag) => `Posts tagged with ${tag}`
     });
     return result;

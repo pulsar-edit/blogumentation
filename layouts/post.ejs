@@ -28,7 +28,7 @@
             <span class="header__details-tags icon icon-tag">
               <% for (let [index, tag] of locals.tag.entries()) { -%>
                 <% let isLast = index === locals.tag.length - 1 -%>
-                <a href="/tagged/<%= tag %>"><%= tag %></a><%= isLast ? '' : ', ' %>
+                <a href="/tag/<%= tag %>"><%= tag %></a><%= isLast ? '' : ', ' %>
               <% } -%>
             </span>
             <% } -%>
