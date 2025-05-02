@@ -85,6 +85,23 @@ module.exports = (eleventyConfig) => {
     return collectionApi.getFilteredByGlob("blog/posts/*.md").reverse();
   });
 
+  eleventyConfig.addCollection("tags", (collectionApi) => {
+    let posts = collectionApi.getFilteredByGlob("blog/posts/*.md");
+    let index = new Map();
+    for (let post of posts) {
+      for (let tag of post.data.tag ?? []) {
+        if (!index.has(tag)) {
+          index.set(tag, 0);
+        }
+        index.set(tag, index.get(tag) + 1);
+      }
+    }
+
+    let entries = Array.from(index.entries());
+    entries.sort((a, b) => b[1] - a[1]);
+    return entries;
+  });
+
   // Build a collection of pages that list posts by tag name and are themselves
   // paginated.
   eleventyConfig.addCollection('tagPages', (collectionApi) => {

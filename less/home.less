@@ -1,0 +1,25 @@
+
+.tag-list {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5rem;
+
+  &__item {
+    display: inline-block;
+    padding-right: 4px;
+  }
+
+  &__item-link {
+    display: inline-block;
+    background-color: var(--btn-bg);
+
+    &:hover {
+      background-color: var(--btn-bg-hover);
+      text-decoration: none;
+    }
+  }
+
+  &__item-count {
+    color: var(--font-color-subtle);
+  }
+}
