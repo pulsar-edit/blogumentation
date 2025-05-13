@@ -28,7 +28,7 @@ module.exports = (eleventyConfig) => {
       base: "https://blog.pulsar-edit.dev/",
       author: {
         name: "Pulsar Team",
-        email: "", // Optional
+        email: "admin@pulsar-edit.dev"
       }
     }
   });
