@@ -17,14 +17,12 @@
   "devDependencies": {
     "@11ty/eleventy": "^3.1.0-beta.1",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
+    "@11ty/eleventy-plugin-rss": "^2.0.3",
+    "@11ty/eleventy": "^3.1.0-beta.1",
+    "11ty-config": "github:confused-Techie/11ty-config-pulsar",
     "cross-env": "^7.0.3",
-    "less": "^4.2.0",
-    "markdown-it": "^14.1.0",
-    "markdown-it-anchor": "^8.6.7",
-    "terser": "^5.37.0"
+    "markdown-it-anchor": "^8.6.7"
   },
   "dependencies": {
-    "@11ty/eleventy-plugin-ejs": "^1.0.0",
-    "@11ty/eleventy-plugin-rss": "^2.0.3"
   }
 }

@@ -1,26 +1,18 @@
-const less = require("less");
 const { feedPlugin } = require('@11ty/eleventy-plugin-rss');
-const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-const PRISM_LANGUAGE_SCM = require("./plugins/prism-language-scm.js");
 const { indexPostsBy, flatPaginate } = require('./plugins/pagination-helpers');
+const pulsarEleventyConfig = require("11ty-config");
+const { getMdLibrary } = pulsarEleventyConfig;
+
 module.exports = (eleventyConfig) => {
+  pulsarEleventyConfig(eleventyConfig);
+
+  getMdLibrary().use(
+    require("markdown-it-anchor")
+  );
+
   // Don't generate JS files when we encounter `*.11tydata.js` files; those are
   // metadata.
   eleventyConfig.ignores.add("**/*.11tydata.js");
-
-  eleventyConfig.setServerOptions({
-    // Prevent the server from trying to do a clever hot-reload when only
-    // Markdown is changed. We have JavaScript code that needs to react to
-    // changed content, so it's better to reload the page instead.
-    domDiff: false
-  });
-
-  eleventyConfig.addPlugin(require("@11ty/eleventy-plugin-ejs"));
-  eleventyConfig.addPlugin(syntaxHighlight, {
-    init({ Prism }) {
-      Prism.languages.scm = PRISM_LANGUAGE_SCM;
-    }
-  });
 
   eleventyConfig.addPlugin(feedPlugin, {
     type: "atom", // or "rss", "json"
@@ -41,36 +33,7 @@ module.exports = (eleventyConfig) => {
     }
   });
 
-  // Add custom templates
-  eleventyConfig.addTemplateFormats("less");
-  eleventyConfig.addExtension("less", {
-    outputFileExtension: "css",
-    compile: async function (input, inputPath) {
-      try {
-        const output = await less.render(input, {
-          math: "always" // required for use with Skeleton
-        });
-
-        this.addDependencies(inputPath, output.imports);
-        return async () => output.css;
-      } catch(err) {
-        console.error(`Error compiling less:\n`, err);
-        throw err;
-      }
-    }
-  });
-
-  eleventyConfig.addTemplateFormats("js");
-  eleventyConfig.addExtension("js", require("./plugins/terser.js"));
-
-  eleventyConfig.setLibrary("md", require("./plugins/markdown-it.js"));
-
   // Add passthrough file copies
-
-  // copy the data from static to static
-  eleventyConfig.addPassthroughCopy({ "static": "static" });
-  // Ensure the CNAME file is in the root dir
-  eleventyConfig.addPassthroughCopy({ "static/CNAME": "CNAME" });
   eleventyConfig.addPassthroughCopy({ "assets": "assets" });
 
   // HACK: The feed plugin seems to expect that your blog posts are in
@@ -154,6 +117,7 @@ module.exports = (eleventyConfig) => {
       return summary.length === 200 ? `${summary}…` : summary;
     }
   };
+
   // return config
   return {
     markdownTemplateEngine: false,
