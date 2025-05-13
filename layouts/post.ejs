@@ -1,9 +1,17 @@
-<!-- The main blog page -->
 <%- include("header") %>
+<!-- The main blog page -->
 
   <body>
     <%- include("page_header") %>
     <div class="content">
+      <section class="sidebar">
+        <div class="sidebar__contents">
+          <ul class="sidebar__breadcrumbs">
+            <li><a href="/">Home</a></li>
+          </ul>
+        </div>
+        <div class="sidebar__toc"></div>
+      </section>
 
       <main class="container">
         <section class="header">
@@ -12,19 +20,23 @@
             <span class="header__details-author icon icon-person">
               <%= author %>
             </span>
-            <span class="header__details-date icon icon-calendar" data-date="<%= date.toISOString() %>">
-              <%= date.toLocaleString() %>
-            </span>
+            <time class="header__details-date icon icon-calendar" datetime="<%= date.toISOString() %>"><%= date.toLocaleString() %></time>
+            <% if (Array.isArray(locals.category) && locals.category.length > 0) { %>
             <span class="header__details-category icon icon-list-unordered">
-              <% if (typeof category !== "undefined" && Array.isArray(category)) { %>
-              <%= category.join(", ") %>
-              <% } %>
+              <% for (let [index, category] of locals.category.entries()) { %>
+                <% let isLast = index === locals.category.length - 1 %>
+                <a href="/category/<%= category %>"><%= category %></a><%= isLast ? '' : ', ' %>
+              <% } -%>
             </span>
+            <% } -%>
+            <% if (Array.isArray(locals.tag) && locals.tag.length > 0) { -%>
             <span class="header__details-tags icon icon-tag">
-              <% if (typeof tag !== "undefined" && Array.isArray(tag)) { %>
-              <%= tag.join(", ") %>
-              <% } %>
+              <% for (let [index, tag] of locals.tag.entries()) { -%>
+                <% let isLast = index === locals.tag.length - 1 -%>
+                <a href="/tag/<%= tag %>"><%= tag %></a><%= isLast ? '' : ', ' %>
+              <% } -%>
             </span>
+            <% } -%>
           </div>
         </section>
 

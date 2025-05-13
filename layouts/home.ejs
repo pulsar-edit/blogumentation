@@ -1,12 +1,31 @@
 <!-- Home page for the website -->
-<%-include("header")%>
+<%- include("header") %>
 
   <body class="layout--home">
     <%- include("page_header") %>
     <div class="content">
+
+      <div class="sidebar">
+        <section class="sidebar__section sidebar__section--tags">
+          <header>
+            <h3>Tags</h3>
+          </header>
+          <div class="sidebar__section-content">
+            <ul class="tag-list">
+              <% for (let [tag, count] of collections.tags) { -%>
+              <li class="tag-list__item">
+                <a class="tag-list__item-link" href="/tag/<%= tag %>"><%= tag %></a>
+                <span class="tag-list__item-count">(<%= count %>)</span>
+              </li>
+              <% } -%>
+            </ul>
+          </div>
+        </section>
+      </div>
+
       <main class="container">
         <section class="header">
-          <h1 class="title" id="title"><%=title%></h1>
+          <h1 class="title" id="title"><%= title %></h1>
 
           <section class="header__description">
             <%- content %>
@@ -14,10 +33,10 @@
         </section>
 
 
-        <%-include("blocks", { blocks: collections["blog-posts"] })%>
+        <%- include("blocks", { blocks: locals.blocks ?? [] }) %>
 
       </main>
     </div>
   </body>
 
-<%-include("footer")%>
+<%- include("footer") %>

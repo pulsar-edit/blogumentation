@@ -1,10 +1,13 @@
 <!DOCTYPE HTML>
 <html lang="en" data-theme="">
+  <% let title = locals?.customTitle ?? locals.title %>
   <head>
-    <title><%=title%></title>
+    <title><%= title %></title>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" id="meta-scheme" content="">
     <meta property="og:title" content="<%= title %>">
+    <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="/feed.xml">
     <script type="text/javascript">
       {
         // Populate the theme as early as possible to prevent a flash on load.
