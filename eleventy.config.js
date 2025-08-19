@@ -34,7 +34,11 @@ module.exports = (eleventyConfig) => {
   });
 
   // Add passthrough file copies
-  eleventyConfig.addPassthroughCopy({ "assets": "assets" });
+  eleventyConfig.addPassthroughCopy({
+    "assets": "assets",
+    // Copy `favicon.ico` and `favicon.svg` to the root.
+    "static/favicon": "/"
+  });
 
   // HACK: The feed plugin seems to expect that your blog posts are in
   // chronological order, rather than reverse chronological. So for now let's
