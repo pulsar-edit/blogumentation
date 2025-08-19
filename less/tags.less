@@ -1,0 +1,68 @@
+@tag-color-1:  hsl(0,   57%, 71%);
+@tag-color-2:  hsl(30,  57%, 71%);
+@tag-color-3:  hsl(60,  57%, 71%);
+@tag-color-4:  hsl(90,  57%, 71%);
+@tag-color-5:  hsl(120, 57%, 71%);
+@tag-color-6:  hsl(150, 57%, 71%);
+@tag-color-7:  hsl(180, 57%, 71%);
+@tag-color-8:  hsl(210, 57%, 71%);
+@tag-color-9:  hsl(240, 57%, 71%);
+@tag-color-10: hsl(270, 57%, 71%);
+@tag-color-11: hsl(300, 57%, 71%);
+@tag-color-12: hsl(330, 57%, 71%);
+
+.tag-loop(@counter) when (@counter > 0) {
+  .tag-loop((@counter - 1));    // next iteration
+  .tag--variant-@{counter} {
+    @tag-text-color: darken(@@tag-color-var, 60%);
+    --tag-shadow-color: lighten(@tag-text-color, 40%);
+    @tag-color-var: "tag-color-@{counter}";
+    @tag-bg-color: @@tag-color-var;
+    color: @tag-text-color;
+    background-color: @tag-bg-color;
+
+    &:hover {
+      color: @tag-text-color;
+    }
+  }
+}
+
+:root {
+  // Tags
+  --tag-color-1:  @tag-color-1;
+  --tag-color-2:  @tag-color-2;
+  --tag-color-3:  @tag-color-3;
+  --tag-color-4:  @tag-color-4;
+  --tag-color-5:  @tag-color-5;
+  --tag-color-6:  @tag-color-6;
+  --tag-color-7:  @tag-color-7;
+  --tag-color-8:  @tag-color-8;
+  --tag-color-9:  @tag-color-9;
+  --tag-color-10: @tag-color-10;
+  --tag-color-11: @tag-color-11;
+  --tag-color-12: @tag-color-12;
+}
+
+.category,
+.tag {
+  padding: 1px 3px;
+  border-radius: 2px;
+  font-size: 90%;
+
+  &:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.tag-loop(12);
+
+.tag {
+  font-weight: 500;
+  transition-property: color, background-color, outline-color, border-color, text-shadow;
+  transition-duration: 0.2s;
+
+  &:hover {
+    text-decoration: none;
+  }
+}

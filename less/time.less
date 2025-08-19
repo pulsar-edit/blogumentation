@@ -1,0 +1,29 @@
+@media screen and (max-width: 549px) {
+  .formatted-date {
+    &:not(.formatted-date--short) {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 550px) {
+  .formatted-date {
+    &.formatted-date--medium {
+      display: inline;
+    }
+    &:not(.formatted-date--medium) {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .formatted-date {
+    &.formatted-date--long {
+      display: inline;
+    }
+    &:not(.formatted-date--long) {
+      display: none;
+    }
+  }
+}
