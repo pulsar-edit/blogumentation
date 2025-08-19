@@ -1,15 +1,18 @@
-@tag-color-1:  hsl(0,   57%, 71%);
-@tag-color-2:  hsl(30,  57%, 71%);
-@tag-color-3:  hsl(60,  57%, 71%);
-@tag-color-4:  hsl(90,  57%, 71%);
-@tag-color-5:  hsl(120, 57%, 71%);
-@tag-color-6:  hsl(150, 57%, 71%);
-@tag-color-7:  hsl(180, 57%, 71%);
-@tag-color-8:  hsl(210, 57%, 71%);
-@tag-color-9:  hsl(240, 57%, 71%);
-@tag-color-10: hsl(270, 57%, 71%);
-@tag-color-11: hsl(300, 57%, 71%);
-@tag-color-12: hsl(330, 57%, 71%);
+// EXPERIMENT: Different colors for different tags. Haven't yet figured out a
+// presentation that both (a) looks good across both light and dark themes; and
+// (b) _doesn't_ make the tag list seem like a bowl of Trix cereal.
+@tag-color-1:  hsl(0,   17%, 61%);
+@tag-color-2:  hsl(30,  17%, 61%);
+@tag-color-3:  hsl(60,  17%, 61%);
+@tag-color-4:  hsl(90,  17%, 61%);
+@tag-color-5:  hsl(120, 17%, 61%);
+@tag-color-6:  hsl(150, 17%, 61%);
+@tag-color-7:  hsl(180, 17%, 61%);
+@tag-color-8:  hsl(210, 17%, 61%);
+@tag-color-9:  hsl(240, 17%, 61%);
+@tag-color-10: hsl(270, 17%, 61%);
+@tag-color-11: hsl(300, 17%, 61%);
+@tag-color-12: hsl(330, 17%, 61%);
 
 .tag-loop(@counter) when (@counter > 0) {
   .tag-loop((@counter - 1));    // next iteration
@@ -26,6 +29,12 @@
     }
   }
 }
+
+// Here's where we'd call `.tag-loop` with however many variants we wanted;
+// this would define the styles for `.tag--variant-1`, `.tag-variant--2`, etc.
+// For now, we'll let all the tags be subdued.
+
+// .tag-loop(12);
 
 :root {
   // Tags
@@ -45,24 +54,18 @@
 
 .category,
 .tag {
-  padding: 1px 3px;
-  border-radius: 2px;
-  font-size: 90%;
-
-  &:hover {
-    color: inherit;
-    text-decoration: none;
-  }
-}
-
-.tag-loop(12);
-
-.tag {
   font-weight: 500;
   transition-property: color, background-color, outline-color, border-color, text-shadow;
   transition-duration: 0.2s;
+  border: 1px solid transparent;
+  background-color: var(--btn-bg);
+  padding: 1px 3px;
+  border-radius: 3px;
 
   &:hover {
+    color: var(--link-color);
+    border-color: var(--link-color);
+    background-color: var(--btn-bg-hover);
     text-decoration: none;
   }
 }

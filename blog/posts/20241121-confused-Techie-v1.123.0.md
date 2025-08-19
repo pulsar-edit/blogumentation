@@ -22,7 +22,7 @@ All-in-all we hope there's something for everyone this release.
 As always, a huge thank you to our community, contributors, and donations.
 Happy coding, and see you amongst the stars.
 
-- The Pulsar Team
+\- The Pulsar Team
 
 ---
 

@@ -69,6 +69,23 @@ module.exports = (eleventyConfig) => {
     return entries;
   });
 
+  eleventyConfig.addCollection("categories", (collectionApi) => {
+    let posts = collectionApi.getFilteredByGlob("blog/posts/*.md");
+    let index = new Map();
+    for (let post of posts) {
+      for (let tag of post.data.category ?? []) {
+        if (!index.has(tag)) {
+          index.set(tag, 0);
+        }
+        index.set(tag, index.get(tag) + 1);
+      }
+    }
+
+    let entries = Array.from(index.entries());
+    entries.sort((a, b) => b[1] - a[1]);
+    return entries;
+  });
+
   // Build a collection of pages that list posts by tag name and are themselves
   // paginated.
   eleventyConfig.addCollection('tagPages', (collectionApi) => {
@@ -78,7 +95,7 @@ module.exports = (eleventyConfig) => {
       chunkSize: 20,
       // /tag/foo
       slug: 'tag',
-      title: (tag) => `Posts tagged with ${tag}`
+      title: (tag) => `Posts tagged with **${tag}**`
     });
     return result;
   });
@@ -92,7 +109,7 @@ module.exports = (eleventyConfig) => {
       chunkSize: 20,
       // /category/foo
       slug: 'category',
-      title: (category) => `Posts in category ${category}`
+      title: (category) => `Posts in category **${category}**`
     });
     return result;
   });
@@ -119,6 +136,22 @@ module.exports = (eleventyConfig) => {
       // and correct any that already exist and are missing summaries.
       let summary = value.substring(0, 200);
       return summary.length === 200 ? `${summary}…` : summary;
+    },
+    classNamesForTag (tag) {
+      const fourBitHash = tag.split('').reduce((acc, char) => {
+        return acc + char.charCodeAt(0)
+      }, 0)
+      let variant = fourBitHash % 12
+
+      return `tag tag--variant-${variant + 1}`
+    },
+
+    markdown(mdText) {
+      return getMdLibrary().render(mdText);
+    },
+
+    markdownInline(mdText) {
+      return getMdLibrary().renderInline(mdText);
     }
   };
 

@@ -1,17 +1,51 @@
 window.onload = () => {
-  // Convert any dates that may be shown on page to match the date in the locale
-  // that the page is being viewed in.
-  const datesToConvert = document.querySelectorAll("time[datetime]");
-
-  let formatter = new Intl.DateTimeFormat(undefined, { dateStyle: 'full' });
-
-  for (const item of datesToConvert) {
-    let properDate = new Date(item.getAttribute('datetime'));
-    let title = formatter.format(properDate);
-    item.setAttribute('title', title);
-    item.innerText = properDate.toLocaleDateString();
-  }
+  TimeLocalizer.setup();
 };
+
+// Localizes times across several different styles. This lets us use different
+// date/time lengths at different breakpoints.
+const TimeLocalizer = {
+  setup() {
+    this.formatters = {};
+    for (let style of ['full', 'long', 'medium', 'short']) {
+      this.formatters[style] = new Intl.DateTimeFormat(undefined, { dateStyle: style })
+    }
+
+    this.scan();
+  },
+
+  scan () {
+    // Convert any dates that may be shown on page to match the date in the
+    // locale in which the page is being viewed.
+    const datesToConvert = document.querySelectorAll("time[datetime]");
+
+    for (const item of datesToConvert) {
+      let properDate = new Date(item.getAttribute('datetime'));
+      let title = this.formatters.full.format(properDate);
+      item.setAttribute('title', title);
+      item.innerText = '';
+      item.appendChild(this.buildFormatterOptions(properDate));
+    }
+  },
+
+  buildFormatterOptions (properDate) {
+    let fragment = document.createDocumentFragment();
+    for (let name of Object.keys(this.formatters)) {
+      if (name === 'full') continue;
+      let span = this.buildFormattedOption(name, properDate);
+      fragment.appendChild(span);
+    }
+    return fragment;
+  },
+
+  buildFormattedOption (name, properDate) {
+    let formatted = this.formatters[name].format(properDate);
+    let span = document.createElement('span');
+    span.classList.add('formatted-date', `formatted-date--${name}`)
+    span.innerText = formatted;
+    return span;
+  },
+}
 
 function debounce (fn, delay) {
   let timeout = null;
@@ -102,7 +136,7 @@ class AutoTOC {
     this.root = { children: [] };
 
     // Only consider headings with IDs.
-    let headings = Array.from(this.main.querySelectorAll(':is(h2, h3, h4, h5, h6)[id]'));
+    let headings = Array.from(this.main.querySelectorAll(':is(h1, h2, h3, h4, h5, h6)[id]'));
     // If there are a trivial number of headings on the page, don't bother.
     if (headings.length < minHeadings) {
       return;
