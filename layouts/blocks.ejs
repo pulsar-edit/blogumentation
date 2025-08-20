@@ -3,7 +3,7 @@
   <% for (const node of blocks) { %>
   <section class="block">
     <header class="block__header">
-      <a href="<%= node.page.url %>"><%= node.data.title %></a>
+      <a href="<%= node.page.url %>"><%= helpers.markdownInline(node.data.title) %></a>
     </header>
     <div class="block__summary">
       <%- helpers.findPostSummary(node.content) -%>
@@ -12,22 +12,24 @@
       <span class="block__details-author icon icon-person">
         <%= node.data.author %>
       </span>
-      <time class="block__details-date icon icon-calendar" datetime="<%= node.data.date.toISOString() %>"><%= node.data.date.toLocaleDateString() -%></time>
-      <!-- The above text will be changed to the proper locale by JavaScript -->
+      <time
+        class="block__details-date icon icon-calendar"
+        datetime="<%= node.data.date.toISOString() %>"
+      >
+        <%= node.data.date.toLocaleDateString() -%>
+      </time>
 
       <% if ((node.data.category ?? []).length > 0) {%>
       <span class="block__details-category icon icon-list-unordered">
-        <% for (let [index, category] of node.data.category.entries()) { %>
-          <% let isLast = index === node.data.category.length - 1 %>
-          <a href="/category/<%= category %>"><%= category %></a><%= isLast ? '' : ', ' %>
+        <% for (let category of node.data.category) { %>
+          <a class="category" href="/category/<%= category %>"><%= category %></a>
         <% } %>
       </span>
       <% } %>
       <% if ((node.data.tag ?? []).length > 0) {%>
       <span class="block__details-tags icon icon-tag">
-        <% for (let [index, tag] of node.data.tag.entries()) { %>
-          <% let isLast = index === node.data.tag.length - 1 %>
-          <a href="/tag/<%= tag %>"><%= tag %></a><%= isLast ? '' : ', ' %>
+        <% for (let tag of node.data.tag) { %>
+          <a class="<%= helpers.classNamesForTag(tag) %>" href="/tag/<%= tag %>"><%= tag %></a>
         <% } %>
       </span>
       <% } %>

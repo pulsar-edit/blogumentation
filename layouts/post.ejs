@@ -7,7 +7,8 @@
       <section class="sidebar">
         <div class="sidebar__contents">
           <ul class="sidebar__breadcrumbs">
-            <li><a href="/">Home</a></li>
+            <li><a href="https://pulsar-edit.dev">Home</a></li>
+            <li><a href="/">Blog</a></li>
           </ul>
         </div>
         <div class="sidebar__toc"></div>
@@ -17,25 +18,29 @@
         <section class="header">
           <h1 class="title" id="title"><%= title %></h1>
           <div class="header__details">
-            <span class="header__details-author icon icon-person">
-              <%= author %>
-            </span>
-            <time class="header__details-date icon icon-calendar" datetime="<%= date.toISOString() %>"><%= date.toLocaleString() %></time>
+            <div class="header__details-author-and-date">
+              <span class="header__details-author icon icon-person">
+                <%= author %>
+              </span>
+              <time class="header__details-date icon icon-calendar" datetime="<%= date.toISOString() %>"><%= date.toLocaleString() %></time>
+            </div>
             <% if (Array.isArray(locals.category) && locals.category.length > 0) { %>
-            <span class="header__details-category icon icon-list-unordered">
-              <% for (let [index, category] of locals.category.entries()) { %>
-                <% let isLast = index === locals.category.length - 1 %>
-                <a href="/category/<%= category %>"><%= category %></a><%= isLast ? '' : ', ' %>
+            <div class="header__details-categories-and-tags">
+              <ul class="header__details-categories icon icon-list-unordered">
+                <% for (let [index, category] of locals.category.entries()) { %>
+                  <% let isLast = index === locals.category.length - 1 %>
+                  <li class="header__details-list-item"><a class="category" href="/category/<%= category %>"><%= category %></a></li>
+                <% } -%>
+              </ul>
               <% } -%>
-            </span>
-            <% } -%>
-            <% if (Array.isArray(locals.tag) && locals.tag.length > 0) { -%>
-            <span class="header__details-tags icon icon-tag">
-              <% for (let [index, tag] of locals.tag.entries()) { -%>
-                <% let isLast = index === locals.tag.length - 1 -%>
-                <a href="/tag/<%= tag %>"><%= tag %></a><%= isLast ? '' : ', ' %>
-              <% } -%>
-            </span>
+              <% if (Array.isArray(locals.tag) && locals.tag.length > 0) { -%>
+              <ul class="header__details-tags icon icon-tag">
+                <% for (let [index, tag] of locals.tag.entries()) { -%>
+                  <% let isLast = index === locals.tag.length - 1 -%>
+                  <li class="header__details-list-item"><a class="<%= helpers.classNamesForTag(tag) %>" href="/tag/<%= tag %>"><%= tag %></a></li>
+                <% } -%>
+              </ul>
+            </div>
             <% } -%>
           </div>
         </section>
@@ -45,5 +50,7 @@
       </main>
     </div>
   </body>
+
+  <%- include("page-footer") %>
 
 <%- include("footer") %>

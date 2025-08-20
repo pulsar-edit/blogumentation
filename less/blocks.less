@@ -1,10 +1,17 @@
+.title#title {
+  font-weight: 600;
+}
+
 .blocks {
   columns: 1 !important; // Unset the default styling
+  padding-top: 3rem !important;
+  margin-top: 3rem !important; // Override default styling
 }
 
 .block {
+  padding-bottom: 3rem !important;
   margin-bottom: 3rem !important; // Override default styling
-  border-bottom: .5rem solid var(--thematic-break-color);
+  border-bottom: .25rem solid var(--thematic-break-color);
   padding-bottom: 1.5rem;
 
   &__header {
@@ -20,6 +27,7 @@
   }
 
   &__summary {
+    font-size: 1.75rem;
     & > :last-child {
       margin-bottom: 0;
     }

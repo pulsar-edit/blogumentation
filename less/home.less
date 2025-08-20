@@ -14,12 +14,20 @@
     background-color: var(--btn-bg);
 
     &:hover {
-      background-color: var(--btn-bg-hover);
       text-decoration: none;
     }
   }
 
   &__item-count {
     color: var(--font-color-subtle);
+  }
+}
+
+.sidebar {
+  &__section-title {
+    &:before {
+      font-weight: 800 !important;
+      padding-right: 5px;
+    }
   }
 }

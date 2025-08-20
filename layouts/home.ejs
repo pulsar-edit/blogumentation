@@ -1,25 +1,41 @@
-<!-- Home page for the website -->
+<%# Home page for the blog. %>
 <%- include("header") %>
 
-  <body class="layout--home">
+  <body class="layout--home layout--blog-home">
     <%- include("page_header") %>
     <div class="content">
 
       <div class="sidebar">
         <section class="sidebar__section sidebar__section--tags">
           <header>
-            <h3>Tags</h3>
+            <h3 class="sidebar__section-title icon icon-tag">Tags</h3>
           </header>
           <div class="sidebar__section-content">
             <ul class="tag-list">
               <% for (let [tag, count] of collections.tags) { -%>
               <li class="tag-list__item">
-                <a class="tag-list__item-link" href="/tag/<%= tag %>"><%= tag %></a>
-                <span class="tag-list__item-count">(<%= count %>)</span>
+                <a class="<%= helpers.classNamesForTag(tag) %> tag-list__item-link" href="/tag/<%= tag %>"><%= tag %></a><span class="tag-list__item-count">(<%= count %>)</span>
               </li>
               <% } -%>
             </ul>
           </div>
+        </section>
+
+        <section class="sidebar__section sidebar__section--categories">
+          <header>
+            <h3 class="sidebar__section-title icon icon-list-unordered">Categories</h3>
+          </header>
+
+          <div class="sidebar__section-content">
+            <ul class="tag-list">
+              <% for (let [tag, count] of collections.categories) { -%>
+              <li class="tag-list__item">
+                <a class="<%= helpers.classNamesForTag(tag) %> tag-list__item-link" href="/category/<%= tag %>"><%= tag %></a><span class="tag-list__item-count">(<%= count %>)</span>
+              </li>
+              <% } -%>
+            </ul>
+          </div>
+
         </section>
       </div>
 

@@ -16,7 +16,7 @@
     <div class="content">
       <main class="container">
         <section class="header">
-          <h1 class="title" id="title"><%= locals.customTitle ?? locals.title %></h1>
+          <h1 class="title" id="title"><%- helpers.markdownInline(locals.customTitle ?? locals.title) %></h1>
 
           <section class="header__description">
             <%- content %>

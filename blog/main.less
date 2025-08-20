@@ -1,3 +1,24 @@
+@import "less/mixins.less";
 @import "less/blocks.less";
 @import "less/header.less";
+@import "less/page-footer.less";
 @import "less/home.less";
+@import "less/time.less";
+@import "less/tags.less";
+
+.sidebar__section {
+  margin-bottom: 2rem;
+}
+
+.sidebar__toc {
+  a {
+    border-style: solid;
+    border-width: 0;
+    border-left-width: 2px;
+    border-color: var(--link-color-subtle);
+  }
+
+  a.active {
+    border-color: var(--link-color);
+  }
+}
