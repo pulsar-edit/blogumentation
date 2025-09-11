@@ -69,3 +69,26 @@
     text-decoration: none;
   }
 }
+
+
+// Undo the effects that `.tag` has on syntax-highlighted HTML.
+//
+// TODO: Perhaps namespace the syntax-highlighting class names so that this is
+// unnecessary. Prism likely has a way of doing this.
+pre code {
+  .tag {
+    padding: 0;
+    font-weight: inherit;
+    background-color: inherit;
+    transition-duration: 0;
+    border: 0;
+    border-radius: 0;
+
+    &:hover {
+      color: var(--syntax-variable);
+      border-color: inherit;
+      background-color: inherit;
+      text-decoration: inherit;
+    }
+  }
+}
