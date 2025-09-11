@@ -424,9 +424,9 @@ The `language-javascript` package already defines `fun` one way, but we can rede
 Now we’ve made the `fun` snippet much more useful. When we type `fun` and press <kbd>Tab</kbd>, the `snippets` package will pick the version that matches the context of the cursor most closely.
 
 <video style="max-width: 100%" autoplay controls muted>
-	<source src="@source/blog/assets/tree-sitter-snippet-context-example.webm" type="video/webm">
-	<source src="@source/blog/assets/tree-sitter-snippet-context-example.mp4" type="video/mp4">
-	<p>Your browser doesn’t support HTML video. <a href="@source/blog/assets/tree-sitter-snippet-context-example.mp4">Download this video</a> instead.</p>
+	<source src="/assets/tree-sitter-snippet-context-example.webm" type="video/webm">
+	<source src="/assets/tree-sitter-snippet-context-example.mp4" type="video/mp4">
+	<p>Your browser doesn’t support HTML video. <a href="/assets/tree-sitter-snippet-context-example.mp4">Download this video</a> instead.</p>
 </video>
 
 This will work identically whether you use tab triggers or choose your snippets from an autocomplete menu.
