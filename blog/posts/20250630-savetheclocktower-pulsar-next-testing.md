@@ -24,7 +24,7 @@ But I’m getting ahead of myself. Let’s do this FAQ-style.
 
 We’re all volunteers who often have to juggle other things in our lives. Pulsar always shot for a once-a-month release schedule — ideally around the 15th, but often a few days late!
 
-In recent months, however, there simply haven’t been as many things to ship. The most recent version, 1.128.0, was [larger than usual](/blog/20250502-DeeDeeG-v1.128.0.html) — RTL text editing, new highlighting options for comments in JSON, and a couple of big performance improvements. Since then, though, there haven’t even been enough changes to the main Pulsar branch to make a new release a priority.
+In recent months, however, there simply haven’t been as many things to ship. The most recent version, 1.128.0, was [larger than usual](/posts/20250502-DeeDeeG-v1.128.0) — RTL text editing, new highlighting options for comments in JSON, and a couple of big performance improvements. Since then, though, there haven’t even been enough changes to the main Pulsar branch to make a new release a priority.
 
 But why? We certainly haven’t run out of things to address.
 
@@ -42,13 +42,13 @@ Electron also bundles [Node](https://nodejs.org/), so each release includes what
 
 Atom literally _invented_ Electron; and, as we learned with Tree-sitter, it’s sometimes expensive to be the first implementer of a major new thing.
 
-[We’ve written before](/blog/20240124-mauricioszabo-the-quest-for-electron-lts.html) about our goal to get Pulsar onto a modern version of Electron. We’re on version **12.2.3** right now — positively _ancient_ considering that the stable version at publish time is **36.4.0**. Version 12.2.3 dates back to November of 2021.
+[We’ve written before](/posts/20240124-mauricioszabo-the-quest-for-electron-lts) about our goal to get Pulsar onto a modern version of Electron. We’re on version **12.2.3** right now — positively _ancient_ considering that the stable version at publish time is **36.4.0**. Version 12.2.3 dates back to November of 2021.
 
 Atom was on an _even older_ version of Electron, and one of the early goals of the Pulsar team was to modernize the editor in all respects, including its Electron version. When it was upgraded to 12.2.3, though, that wasn’t even the newest version of Electron at the time — it was just as far as it could be upgraded without major changes to the codebase.
 
 ## What changes had to be made, and why?
 
-One of the biggest tasks on that list — maybe as big as all the others _combined_ — was retiring the original implementation of [Tree-sitter](https://tree-sitter.github.io/tree-sitter/) and replacing it with a modern implementation using WebAssembly. (And if that’s news to you, I have a [seven-part blog post series](/blog/20230925-savetheclocktower-modern-tree-sitter-part-1.html) for your perusal!)
+One of the biggest tasks on that list — maybe as big as all the others _combined_ — was retiring the original implementation of [Tree-sitter](https://tree-sitter.github.io/tree-sitter/) and replacing it with a modern implementation using WebAssembly. (And if that’s news to you, I have a [seven-part blog post series](/posts/20230925-savetheclocktower-modern-tree-sitter-part-1) for your perusal!)
 
 As for the other changes and the _why_: I’d be happy to go into detail in future blog posts, but that’s too big of a topic for this one.
 
@@ -160,7 +160,7 @@ If this sounds interesting to you, keep reading!
 
    - We had to rewrite one of our modules that monitors files and directories for changes. If you observe any symptoms that imply that file-watching isn’t working, please let us know. Examples might include the tree view failing to show files after they were created by something outside of PulsarNext, or the editor itself failing to update the contents of a file (when the buffer is unmodified) after an external tool changes the file’s contents.
    - It should be rare, but if PulsarNext crashes outright, please let us know. (You’ll see a dialog titled “The editor has crashed” and options to close or reload.) On Windows and Linux, crash dumps will be generated within a special `crashdump` folder within your PulsarNext home folder. On macOS, you can find crash reports in Console.app under the “Crash Reports” sidebar heading. Please file an issue against Pulsar, attach your crash report or crash dump, and tell us what you were doing when it happened.
-   - If you’re a Linux user who use a [Wayland](<https://en.wikipedia.org/wiki/Wayland_(protocol)>) display server, please let us know if your keystroke detection isn’t working as expected — especially if you use a keyboard layout other than QWERTY. We had to implement this logic from scratch for Wayland users so that it worked just as well as it does for [X](https://en.wikipedia.org/wiki/X_Window_System) users. Feedback so far has been positive, but we’d love to get more data points.
+   - If you’re a Linux user who uses a [Wayland](<https://en.wikipedia.org/wiki/Wayland_(protocol)>) display server, please let us know if your keystroke detection isn’t working as expected — especially if you use a keyboard layout other than QWERTY. We had to implement this logic from scratch for Wayland users so that it worked just as well as it does for [X](https://en.wikipedia.org/wiki/X_Window_System) users. Feedback so far has been positive, but we’d love to get more data points.
 
    If you encounter bugs, you can [file them as issues](https://github.com/pulsar-edit/pulsar/issues), or [drop into Discord](https://discord.gg/7aEbB9dGRT) if you want to make sure what you’re seeing isn’t intended.
 

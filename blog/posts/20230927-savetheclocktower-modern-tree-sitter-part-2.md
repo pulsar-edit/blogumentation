@@ -9,7 +9,7 @@ tag:
   - tree-sitter
 ---
 
-In [the last post](/blog/20230925-savetheclocktower-modern-tree-sitter-part-1.html), I tried to explain why the new Tree-sitter integration was worth writing about in the first place: because we needed to integrate it into a system defined by TextMate grammars, and we had to solve some challenging problems along the way.
+In [the last post](/posts/20230925-savetheclocktower-modern-tree-sitter-part-1), I tried to explain why the new Tree-sitter integration was worth writing about in the first place: because we needed to integrate it into a system defined by TextMate grammars, and we had to solve some challenging problems along the way.
 
 Today I’ll try to illustrate what that system looks like and why it’s important.
 
