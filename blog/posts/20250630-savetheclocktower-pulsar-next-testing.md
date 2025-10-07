@@ -24,7 +24,7 @@ But I’m getting ahead of myself. Let’s do this FAQ-style.
 
 We’re all volunteers who often have to juggle other things in our lives. Pulsar always shot for a once-a-month release schedule — ideally around the 15th, but often a few days late!
 
-In recent months, however, there simply haven’t been as many things to ship. The most recent version, 1.128.0, was [larger than usual](/blog/20250502-DeeDeeG-v1.128.0.html) — RTL text editing, new highlighting options for comments in JSON, and a couple of big performance improvements. Since then, though, there haven’t even been enough changes to the main Pulsar branch to make a new release a priority.
+In recent months, however, there simply haven’t been as many things to ship. The most recent version, 1.128.0, was [larger than usual](/posts/20250502-DeeDeeG-v1.128.0) — RTL text editing, new highlighting options for comments in JSON, and a couple of big performance improvements. Since then, though, there haven’t even been enough changes to the main Pulsar branch to make a new release a priority.
 
 But why? We certainly haven’t run out of things to address.
 
@@ -42,13 +42,13 @@ Electron also bundles [Node](https://nodejs.org/), so each release includes what
 
 Atom literally _invented_ Electron; and, as we learned with Tree-sitter, it’s sometimes expensive to be the first implementer of a major new thing.
 
-[We’ve written before](/blog/20240124-mauricioszabo-the-quest-for-electron-lts.html) about our goal to get Pulsar onto a modern version of Electron. We’re on version **12.2.3** right now — positively _ancient_ considering that the stable version at publish time is **36.4.0**. Version 12.2.3 dates back to November of 2021.
+[We’ve written before](/posts/20240124-mauricioszabo-the-quest-for-electron-lts) about our goal to get Pulsar onto a modern version of Electron. We’re on version **12.2.3** right now — positively _ancient_ considering that the stable version at publish time is **36.4.0**. Version 12.2.3 dates back to November of 2021.
 
 Atom was on an _even older_ version of Electron, and one of the early goals of the Pulsar team was to modernize the editor in all respects, including its Electron version. When it was upgraded to 12.2.3, though, that wasn’t even the newest version of Electron at the time — it was just as far as it could be upgraded without major changes to the codebase.
 
 ## What changes had to be made, and why?
 
-One of the biggest tasks on that list — maybe as big as all the others _combined_ — was retiring the original implementation of [Tree-sitter](https://tree-sitter.github.io/tree-sitter/) and replacing it with a modern implementation using WebAssembly. (And if that’s news to you, I have a [seven-part blog post series](/blog/20230925-savetheclocktower-modern-tree-sitter-part-1.html) for your perusal!)
+One of the biggest tasks on that list — maybe as big as all the others _combined_ — was retiring the original implementation of [Tree-sitter](https://tree-sitter.github.io/tree-sitter/) and replacing it with a modern implementation using WebAssembly. (And if that’s news to you, I have a [seven-part blog post series](/posts/20230925-savetheclocktower-modern-tree-sitter-part-1) for your perusal!)
 
 As for the other changes and the _why_: I’d be happy to go into detail in future blog posts, but that’s too big of a topic for this one.
 
