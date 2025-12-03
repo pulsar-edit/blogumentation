@@ -4,6 +4,9 @@ author: savetheclocktower
 date: 2025-12-02
 category:
   - dev
+tag:
+  - modernization
+  - electron
 ---
 
 If you’re reading this, Pulsar’s long-planned upgrade to Electron 30 is finally upon us. This applies to rolling releases on or after December 2 _and_ to regular release versions 1.131.0 and later.
