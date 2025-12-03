@@ -77,6 +77,8 @@ Luckily, future Electron upgrades should be nowhere near as disruptive as this o
 * Electron 33 drops support for macOS 10.15 (Catalina).
 * Electron 38 drops support for macOS 11 (Big Sur).
 
+In addition to this, Electron 23 has already dropped support for Windows 7, 8, and 8.1.
+
 We regret this, but Electron apps are beholden to Chromium’s support matrix. If Chromium drops support for an operating system, it’s _dropped_. If this will affect you, you’ll at least be able to use older versions of Pulsar indefinitely. If it affects enough people, we might explore a custom release channel of Pulsar that tries to deliver new features while maintaining a broadly compatible Electron version.
 
 But that’ll all come into focus in the future. For now, happy coding, and see you amongst the stars!
