@@ -122,9 +122,9 @@ In the meantime, if you don’t like the keybindings we chose, you can can remap
 
 ## Help us test it!
 
-As I mentioned, the status quo on Windows (no known working terminal packages since 1.131.0!) made this an urgent package to get into core. This package is ready to use, but it is nowhere near feature-complete, and we’d love to get some feedback from users.
+As I mentioned, the status quo on Windows (no known working terminal packages since 1.131.0!) made this an urgent package to get into core. This package is ready to use, but it is nowhere near feature-complete, and we’d love to get some feedback from users. So **please put it through its paces and report any bugs you find**.
 
-A few users helped us with beta testing — and special thanks to [@Daeraxa] for doing some intensive QA work in the last couple weeks! — but experience has told us that the best way to get testers is to ship code in the regular release. You may consider this package “experimental” in that it’s not seen much real-world usage yet, but make no mistake — it’s here to stay.
+A few users helped us with beta testing — and special thanks to [@Daeraxa](https://github.com/Daeraxa/) for doing some intensive QA work in the last couple weeks! — but experience has told us that the best way to get testers is to ship code in the regular release. You may consider this package “experimental” in that it’s not seen much real-world usage yet, but make no mistake — it’s here to stay.
 
 If you don’t like the new `terminal` package, you can keep using `x-terminal-reloaded` if you’re on macOS or Linux. Windows users don’t have a working alternative yet, but we’d be happy to give some guidance if you wanted to build a power-user, feature-stuffed community terminal package that works across all three of the platforms we support.
 
