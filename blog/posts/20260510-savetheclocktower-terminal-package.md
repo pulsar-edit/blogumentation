@@ -28,7 +28,9 @@ In short:
 
 Every new core package adds weight to the Pulsar bundle. The best way for the new package to justify that extra weight is to deliver functionality that many users expect to be present.
 
-And, indeed, **questions about installing terminal packages are among the most common requests in our support channels**. I’ve got no doubt that a core terminal package was frequently requested back in the Atom days; even more so now that many of our new users come over to us after having used Visual Studio Code, [whose own built-in terminal](https://code.visualstudio.com/docs/terminal/basics) likely influences their habits and expectations.
+And, indeed, **questions about installing terminal packages are among the most common requests in our support channels**. I’ve got no doubt that a core terminal package was frequently requested back in the Atom days; [`platformio-ide-terminal`](https://packages.pulsar-edit.dev/packages/platformio-ide-terminal) is, after all, the most popular community package of all time.
+
+Many of our new users come over to us after having used Visual Studio Code, [whose own built-in terminal](https://code.visualstudio.com/docs/terminal/basics) likely influences their habits and expectations.
 
 Ordinarily, even popularity wouldn’t be a magic bullet. One of our justifications for keeping the core so lean is the idea that anything that _isn’t_ in the core takes only a few extra clicks to install. Yet…
 
@@ -48,7 +50,7 @@ It also saves the user from having to roam around a graveyard of community termi
 
 ### It’s hard to keep community terminal packages working
 
-We go through terminal packages [faster than Spinal Tap goes through drummers](https://en.wikipedia.org/wiki/Spinal_Tap_(band)#Drums,_percussion)! When users have asked which terminal package they should install, we’ve always recommended `x-terminal-reloaded`, since it’s been most actively maintained and was known to work in Pulsar on all platforms. Yet `x-terminal-reloaded` is a fork of `x-terminal`, which was a fork of `atom-xterm`, which was a fork of `term3`, which was a fork of `term2`, which was a fork of `term`.
+We go through terminal packages [faster than Spinal Tap goes through drummers](https://en.wikipedia.org/wiki/Spinal_Tap_(band)#Drums,_percussion)! When users have asked which terminal package they should install, we’ve always recommended [`x-terminal-reloaded`](https://packages.pulsar-edit.dev/packages/x-terminal-reloaded): it’s been maintained by Pulsar team member [@Spiker985](https://github.com/Spiker985/) for a few years, was known to work in Pulsar on all platforms, and was a strong candidate for addition to core in its own right. Yet `x-terminal-reloaded` is a fork of `x-terminal`, which was a fork of `atom-xterm`, which was a fork of `term3`, which was a fork of `term2`, which was a fork of `term`.
 
 Maybe the maintainers of these packages all just happened to have very short attention spans. But I think it’s far more likely that terminal packages needed time and attention to keep up to date, especially in the early days of Atom and Node.
 
@@ -56,7 +58,7 @@ To illustrate, we need only look at [the recent Electron modernization](/posts/2
 
 In short: `node-pty` now uses a multithreaded model on Windows to get around a deadlock issue. But this requires using Node’s `worker_threads` library — and Electron doesn’t support that library in the renderer process, which is the context where community packages execute code. So right now `x-terminal-reloaded` works just fine on macOS and Linux, but fails to spawn a terminal on Windows. **This leaves Windows users with no working community terminal packages.**
 
-This, in fact, was the last straw. It could’ve been worked around with a major architectural change in `x-terminal-reloaded` — but it made much more sense to spend that effort on bringing a terminal package into the core. We didn’t want to let this opportunity go to waste.
+This, in fact, was the last straw. It could’ve been worked around with a major architectural change in `x-terminal-reloaded` — but it made much more sense to spend that effort on bringing a new terminal package into the core. We didn’t want to let this opportunity go to waste.
 
 ## Architecture
 
@@ -67,6 +69,8 @@ These were my goals for `terminal`:
 * Make it feel like a first-class part of Pulsar.
 
 ### Features
+
+The “easy” parts are the same across nearly all terminal packages: [`node-pty`](https://github.com/microsoft/node-pty) handles providing a pseudoterminal, and [XTerm.js](https://xtermjs.org/) handles the rendering of terminal output.
 
 I wanted to draw inspiration from community terminal packages, but I didn’t want a maximalist, power-user feature set! `x-terminal-reloaded` was the obvious place to start, so I studied that codebase for a while.
 
