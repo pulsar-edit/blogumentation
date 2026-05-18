@@ -1,4 +1,4 @@
-# Pulsar Blog (WIP)
+# Pulsar Blog
 
 This repo contains the website source code for `https://blog.pulsar-edit.dev`.
 
