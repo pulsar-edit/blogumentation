@@ -3,7 +3,7 @@
   <% for (const node of blocks) { %>
   <section class="block">
     <header class="block__header">
-      <a href="<%= node.page.url %>"><%= helpers.markdownInline(node.data.title) %></a>
+      <a href="<%= node.page.url %>"><%- helpers.markdownInline(node.data.title) %></a>
     </header>
     <div class="block__summary">
       <%- helpers.findPostSummary(node.content) -%>
