@@ -33,6 +33,8 @@ module.exports = (eleventyConfig) => {
     }
   });
 
+  eleventyConfig.addTransform("integrity-hashes", require("./plugins/integrity-hashes.js"));
+
   // Add passthrough file copies
   eleventyConfig.addPassthroughCopy({
     "assets": "assets",
