@@ -62,7 +62,7 @@ If you want to switch to the new file-watching implementation, check out the **C
 
 ### New “deleted” file state
 
-In 1.132 we introduced a new “conflicted” state for pane items and editors especially. A file enters such a state if you (a) open it, (b) make changes (without saving), and then (c) have the file’s contents on disk change (usually from another program) in a way that clashes with the uncommitted modifications you’ve made.
+In 1.132 we introduced a new “conflicted” state for pane items and editors especially. A file enters such a state if you (1) open it, (2) make changes (without saving), and then (3) have the file’s contents on disk change (usually from another program) in a way that clashes with the uncommitted modifications you’ve made.
 
 Pulsar 1.133 adds a companion state: **deleted**. An editor can enter the deleted state if the user has opened a file for editing and that file later gets deleted by some other program. This is most likely to happen if you switch branches in version control — a file that exists in one branch may not exist in another. (Another long-present setting — `core.closeDeletedFileTabs` — will close such tabs altogether upon deletion, but it’s not enabled by default.)
 
@@ -111,7 +111,7 @@ Pulsar is more than three years old as a project! But time means change, especia
 
 It’s a perfect time to remind our userbase that, **if you’re interested in contributing, we’d love to have you!** We want to release more frequently than we have lately, but for that to happen we need more active participants. **The main bottleneck these days is code reviewers** — if we had more folks willing to look at pull requests, it’d allow us to move much faster and return to something like our previous monthly release cadence.
 
-That’s why we’re eager to groom new contributors. I spend nearly all of my Pulsar-related free time on feature work… but I’d love to spend much more of it on mentoring and advice.
+That’s why we’re eager to onboard new contributors. I spend nearly all of my Pulsar-related free time on feature work… but I’d love to spend much more of it on mentoring and advice.
 
 If you’ve written a community package, you have enough expertise to peruse the codebase and look over any open pull requests. If you want to enhance Pulsar with a new feature, but don’t quite feel qualified for the task, [jump into our Discord](https://discord.com/invite/7aEbB9dGRT) — we’re more than happy to talk it over with you and give advice on how to approach the challenge.
 
