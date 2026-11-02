@@ -20,7 +20,7 @@ Since you’ve had to wait longer than usual for this release, you’re rewarded
 
 ### Terminal features: directory tracking, hyperlinks, clickable file paths
 
-We were pround to deliver a built-in `terminal` package for the first time as part of 1.132.0 back at the end of spring. Now we’ve enhanced it with some killer features:
+We were proud to deliver a built-in `terminal` package for the first time as part of 1.132.0 back at the end of spring. Now we’ve enhanced it with some killer features:
 
 * **Terminal “hyperlinks”** (as described in [OSC 8](https://terminfo.dev/extensions/osc-8-hyperlinks)) allow for arbitrary terminal text to act as a hyperlink to an arbitrary destination. The `terminal` package already supported clickable text that matched URL patterns, but this is different. Hovering over the hyperlinked text will reveal the linked URL (Rickroll protection!) and by default you must hold a modifier key while clicking, just as when you click on bare URLs.
 * **Your terminals now track their working directories!** Previously, they knew the directory they started in, but lacked the shell integrations needed to keep track of changes to `cwd`. Now that shell integration is present (for `bash`, `zsh`, `fish`, and `powershell`/`pwsh`, at least), we can do things we couldn’t before. The title of your terminal tab will change when `cwd` changes, and when you duplicate terminals (via split right, split left, etc.) new terminal’s `cwd` will match the current `cwd` of the original terminal.
